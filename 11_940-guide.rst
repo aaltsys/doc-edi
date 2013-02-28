@@ -1,0 +1,87 @@
+.. _940:
+
+#############################
+940 Ship Order
+#############################
+
+X12 EDI 940 MAP IMPLEMENTATION GUIDE
+
+The following notes clarify the information requirements for the **940 
+Warehouse Shipping Order** document. This document references the following 
+parties: The warehouse, the account (the warehouse's customer), the 
+customer of the account, the consignee (the ship-to address), and the 
+freight payor (if freight is sent third-party pay).
+
++----+------+---------------------------------+-+-------+--------------+-------------------+
+|Seg |  Ref | Description                     |M|Value  | Mapped To    | Notes             |
++====+======+=================================+=+=======+==============+===================+
+| ST || -01 || Transaction Set Identifier Code|M|| "940"||             |                   |
+|    || -02 || Transaction Set Control Number |M||      ||             |                   |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+|W05 || -01 || Order Status Code              |M|| "N"  || ORDER_STATUS||                  |
+|    || -02 || Depositor Order Number         |M||      || PO_NUMBER   || Account SO #     |
+|    || -03 || Purchase Order Number          |O||      || REFERENCE   || Purchaser PO #   |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+| N1 || -01 || Entity Identifier Code         |M|| "ST" ||             ||                  |
+|    || -02 || Name                           |C||      || NAME        || Ship to name     |
+|    || -03 || Identification Code Qualifier  |C|| "93" ||             || Originator assn'd|
+|    || -04 || Identification Code            |C||      || ADDRESS     || Unique ID req'd  |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+| N3 || -01 || Address Information            |M|       || STREET      || Street line 1    |
+|    || -02 || Address Information            |O|       || STREET      || Street line 2    |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+| N4 || -01 || City Name                      |O|       || CITY        || (Foreign blank)  |
+|    || -02 || State or Province Code         |O|       || STATE       || (Foreign blank)  |
+|    || -03 || Postal Code                    |O|       || ZIP         || (Foreign blank)  |
+|    || -04 || Country Code                   |O|       || COUNTRY     || Foreign addr only|
++----+------+---------------------------------+-+-------+--------------+-------------------+
+| N9 || -01 || Reference Identification Qualif|M|| "BM" ||             || Originator B/L # |
+|    || -02 || Reference Identification       |C||      || ROUTE       ||                  |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+|G61 || -01 || Contact Function Code          |C|| "RE" ||             || Optional segment |
+|    || -02 || Name                           |C||      || CONTACT     || Ship-to contact  |
+|    || -03 || Communication Number Qualifier |C|| "AD" ||             || Optional         |
+|    || -04 || Communication Number           |C||      || PHONE       || Ship-to phone    |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+|G62 || -01 || Date Qualifier                 |C|| "10" ||             || Required         |
+|    || -02 || Date                           |C||      || DATE_SHIP   ||                  |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+|G62 || -01 || Date Qualifier                 |C|| "02" ||             || Optional         |
+|    || -02 || Date                           |C||      || DATE_DELIVER||                  |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+|NTE || -01 || Note Reference Code            |O|| "WHI"||             || WHI, BOL, or ORI |
+|    || -02 || Description                    |M||      || INSTRUCTIONS|| Optional segment |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+|W66 || -01 || Shipment Method of Payment     |M|| "PP" || FREIGHT_PAY || PP, CC, or TP    |
+|    || -02 || Transportation Method/Type Code|M|| "M"  ||             || (motor)          |
+|    || -03 || Pallet Exchange Code           |O||      ||             ||                  |
+|    || -04 || Unit Load Option Code          |O||      ||             ||                  |
+|    || -05 || Routing                        |O||      || ROUTE       || Carrier name     |
+|    || -06 || F.O.B. Point Code              |O||      ||             ||                  |
+|    || -07 || F.O.B. Point                   |O||      ||             ||                  |
+|    || -08 || COD Method of Payment Code     |C||      ||             ||                  |
+|    || -09 || Amount                         |C||      ||             ||                  |
+|    || -10 || Standard Carrier Alpha Code    |O||      || CARRIER     || Carrier SCAC     |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+| LX || -01 || Assigned Number                |M|| "1"  ||             || One segment/order|
++----+------+---------------------------------+-+-------+--------------+-------------------+
+|W01 || -01 || Quantity Ordered               |M||      || QTY_ORDER   || Required         |
+|    || -02 || Unit or Basis for Measurement  |M|| "CA" || UOM_ORDER   || Required         |
+|    || -03 || U.P.C. Case Code               |C||      ||             ||                  |
+|    || -04 || Product/Service ID Qualifier   |C|| "VN" ||             || Required         |
+|    || -05 || Product/Service ID             |C||      || STOCK_NO    || Required         |
+|    || -06 || Product/Service ID Qualifier   |C|| "A3" ||             || UP, BP, CB ,etc. |
+|    || -07 || Product/Service ID             |C||      || ALT_CODE    ||                  |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+|G69 || -01 || Free-form Description          |M|       || DESCRIPTION |                   |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+| N9 || -01 || Reference Identification Qualif|M|| "LI" ||             || Order line # qual|
+|    || -02 || Reference Identification       |C||      || QTY_OPTION  || Order line #     |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+|W76 || -01 || Quantity Ordered               |M|       ||             |                   |
+|    || -02 || Weight                         |C|       ||             |                   |
+|    || -03 || Unit or Basis for Measurement  |C|       ||             |                   |
++----+------+---------------------------------+-+-------+--------------+-------------------+
+| SE || -01 || Number of Included Segments    |M|       | System control segment           |
+|    || -02 || Transaction Set Control Number |M|       |                                  |
++----+------+---------------------------------+-+-------+--------------+-------------------+
