@@ -1,0 +1,657 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>EDI Operations &mdash; Electronic Data Interchange 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Electronic Data Interchange 1.0 documentation" href="index.html" />
+    <link rel="next" title="EDI Overview" href="22_ftp-van.html" />
+    <link rel="prev" title="856 ASN Receipt" href="15_856-guide.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="22_ftp-van.html" title="EDI Overview"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="15_856-guide.html" title="856 ASN Receipt"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">EDI Operations</a><ul>
+<li><a class="reference internal" href="#exchange-receiving-steps">Exchange Receiving Steps</a></li>
+<li><a class="reference internal" href="#inventory-management-steps">Inventory Management Steps</a></li>
+<li><a class="reference internal" href="#exchange-sending-steps">Exchange Sending Steps</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#warehouse-receiving">943/944 Warehouse Receiving</a></li>
+<li><a class="reference internal" href="#warehouse-shipping">940/945 Warehouse Shipping</a></li>
+<li><a class="reference internal" href="#inventory-reporting">846 Inventory Reporting</a><ul>
+<li><a class="reference internal" href="#process">Process</a></li>
+<li><a class="reference internal" href="#program-notes">846 Program Notes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="15_856-guide.html"
+                        title="previous chapter">856 ASN Receipt</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="22_ftp-van.html"
+                        title="next chapter">EDI Overview</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/21_operations.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="edi-operations">
+<span id="t"></span><h1>EDI Operations<a class="headerlink" href="#edi-operations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="exchange-receiving-steps">
+<h2>Exchange Receiving Steps<a class="headerlink" href="#exchange-receiving-steps" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Use menu selection <em class="menuselection">Exchange ‣ Interchange ‣ Receive</em> to
+retrieve waiting documents from your trading partners. (Schedule process
+ECOM_RCV to automate this program step.)</p>
+</li>
+<li><p class="first">Run the EDI.RECEIVES report from menu <em class="menuselection">Exchange ‣ -Reports</em>
+to show all errors or exceptions in received data.</p>
+<p>If document exceptions are found, process the records in the receives file,
+menu selection <em class="menuselection">Exchange ‣ Trading ‣ Receives</em>.</p>
+<ul class="simple">
+<li>Review and print forms for any new errored records, status 1, 2, or 5. FAX
+or email forms containing errors to trading partners.</li>
+<li>Edit and correct standards and map errors (status 1 and 2) and post the
+documents, or set uncorrectable errors to status 0.</li>
+<li>Post test documents (status 3) by setting their status to 4, if desired.</li>
+<li>Review documents accepted with errors (status 5), then archive documents
+from menu (<em class="menuselection">Exchange ‣ Interchange ‣ Archive Accepted</em>).</li>
+<li>Delete any received documents on status 0 using menu selection
+<em class="menuselection">Exchange ‣ Interchange ‣ Delete Duplicates</em>.</li>
+</ul>
+</li>
+<li><p class="first">Select <em class="menuselection">Exchange ‣ Interchange ‣ Transmit</em> to send
+Functional Acknowledgments of received data back to your trading partners.
+(Schedule process ECOM_SND to automate this program step.)</p>
+</li>
+<li><p class="first">Run the EDI.TRANSMITS report from menu <em class="menuselection">Exchange ‣ -Reports</em>
+and resolve missing functional acknowledgments with your trading partners.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="inventory-management-steps">
+<h2>Inventory Management Steps<a class="headerlink" href="#inventory-management-steps" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>From the entry menu, query the Receipts Inbound window for receipts with
+status less than 2. Complete the records, then perform the receiving.</li>
+<li>Query the Orders Pending window for orders with status less than 2.
+Complete or correct the records, posting orders to be shipped.</li>
+<li>Process today&#8217;s orders into shipments and perform the shipping.</li>
+</ol>
+</div>
+<div class="section" id="exchange-sending-steps">
+<h2>Exchange Sending Steps<a class="headerlink" href="#exchange-sending-steps" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>At menu selection <em class="menuselection">Exchange ‣ Interchange ‣ Transmit</em>,
+send Receiving Advice (944) and Shipping Advice (945) response documents.
+(This step may be automated with the scheduler, process ECOM_SND.)</li>
+<li>Run the EDI.EXCHANGES report from menu <em class="menuselection">Exchange ‣ -Reports</em>
+for today&#8217;s exchanges. Verify that all exchanges are complete.</li>
+</ol>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="warehouse-receiving">
+<span id="id1"></span><h1>943/944 Warehouse Receiving<a class="headerlink" href="#warehouse-receiving" title="Permalink to this headline">¶</a></h1>
+<p>When receiving goods on behalf of an account, a warehouse receives advance
+<strong>943 Warehouse Stock Transfer Shipment Advice</strong> documents. Once goods are
+physically received in the warehouse, the account is informed of the actions
+through transmitted <strong>944 Warehouse Stock Transfer Receipt Advice</strong> documents.
+The basic outline of the receiving process is:</p>
+<ol class="arabic simple">
+<li>A data receiving step writes held receipts on file</li>
+<li>Receipts are reviewed and prepared for tallying</li>
+<li>The warehouse performs a physical unloading, tally and putaway</li>
+<li>Each receipt is reconciled with the physical tally</li>
+<li>Advice documents are transmitted back to the customer account</li>
+</ol>
+<p>A full outline of this process is presented in Table 1.</p>
+<p>Table 1.  943 / 944 Process Outline.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="21%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Step</th>
+<th class="head">Description</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>A.1</td>
+<td>Trading Partner</td>
+<td>Produce <strong>943 Warehouse Stock Transfer Shipment</strong></td>
+</tr>
+<tr class="row-odd"><td>A.2</td>
+<td>&nbsp;</td>
+<td>Transmit documents</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Exchange Provider</td>
+<td>(When using an EDI Provider VAN or an FTP site)</td>
+</tr>
+<tr class="row-odd"><td>B.1</td>
+<td>WARES Exchange</td>
+<td>Receive pending data</td>
+</tr>
+<tr class="row-even"><td>B.2</td>
+<td>&nbsp;</td>
+<td>Process data stream into 943 documents in RECEIVES</td>
+</tr>
+<tr class="row-odd"><td>B.3</td>
+<td>&nbsp;</td>
+<td><div class="first last line-block">
+<div class="line">Validate documents against EDI standards</div>
+<div class="line">Write <strong>997 Functional Acknowledgments</strong> to TRANSMITS</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>B.4</td>
+<td>&nbsp;</td>
+<td>Translate accepted 943 documents into held RECEIPTS</td>
+</tr>
+<tr class="row-odd"><td>C.1</td>
+<td>WARES Inventory</td>
+<td>Print receiving tally forms for held receipts records</td>
+</tr>
+<tr class="row-even"><td>C.2</td>
+<td>(warehouse)</td>
+<td>Receive, unload, tally, putaway goods in warehouse</td>
+</tr>
+<tr class="row-odd"><td>C.3</td>
+<td>&nbsp;</td>
+<td>Finish Receiving, check OSDR, change held to verified</td>
+</tr>
+<tr class="row-even"><td>D.1</td>
+<td>WARES Exchange</td>
+<td>Write <strong>944 Stock Transfer Receipt Advice</strong> to TRANSMITS</td>
+</tr>
+<tr class="row-odd"><td>D.2</td>
+<td>&nbsp;</td>
+<td>Transmit documents</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Exchange Provider</td>
+<td>(When using an EDI Provider VAN or an FTP site)</td>
+</tr>
+<tr class="row-odd"><td>E.1</td>
+<td>Trading Partner</td>
+<td>Download waiting 944 documents and translate them</td>
+</tr>
+<tr class="row-even"><td>E.2</td>
+<td>&nbsp;</td>
+<td>Update inventory and location records</td>
+</tr>
+</tbody>
+</table>
+<p>The above 943/944 process has several program steps, but only limited user
+input is required. This interplay of programs and user entry is documented in
+the following table.</p>
+<p>Table 2.  943 / 944 Chart &#8211; Programs, Processes, and User Interactions.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="41%" />
+<col width="14%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Step</th>
+<th class="head">Menu Selection of Action</th>
+<th class="head">Type</th>
+<th class="head">Name or Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>B.1</td>
+<td>Exchange/Interchange/Receive</td>
+<td><div class="first last line-block">
+<div class="line">PROCESS</div>
+<div class="line">PROGRAM</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">ECOM_RCV</div>
+<div class="line">EDI.EXCHANGE</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>B.2</td>
+<td>&nbsp;</td>
+<td>PROGRAM</td>
+<td>EDI.RECEIVE</td>
+</tr>
+<tr class="row-even"><td>B.3</td>
+<td>&nbsp;</td>
+<td>PROGRAM</td>
+<td>EDI.RCV.VALIDATE</td>
+</tr>
+<tr class="row-odd"><td>B.4</td>
+<td>&nbsp;</td>
+<td>PROGRAM</td>
+<td>EDI.RCV.IMPORT</td>
+</tr>
+<tr class="row-even"><td>C.1</td>
+<td>Inventory/Receipts</td>
+<td><div class="first last line-block">
+<div class="line">WINDOW</div>
+<div class="line">PRINT</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Review Status 0 Receipts</div>
+<div class="line">RECEIPTS.TALLY</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>C.2</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Unload, tally, putaway</td>
+</tr>
+<tr class="row-even"><td>C.3</td>
+<td>Inventory/Receipts</td>
+<td>ENTRY</td>
+<td>Reconcile and update status</td>
+</tr>
+<tr class="row-odd"><td>D.1</td>
+<td>&nbsp;</td>
+<td>PROGRAM</td>
+<td>POST_EDI.TRANSMIT</td>
+</tr>
+<tr class="row-even"><td>D.2</td>
+<td>Exchange/Interchange/Transmit</td>
+<td><div class="first last line-block">
+<div class="line">PROCESS</div>
+<div class="line">PROGRAM</div>
+<div class="line">PROGRAM</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">ECOM_SND</div>
+<div class="line">EDI.EXCHANGE</div>
+<div class="line">EDI.TRANSMIT</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</div>
+<div class="section" id="warehouse-shipping">
+<span id="id2"></span><h1>940/945 Warehouse Shipping<a class="headerlink" href="#warehouse-shipping" title="Permalink to this headline">¶</a></h1>
+<p>When shipping goods on behalf of an account, a warehouse receives advance
+<strong>940 Warehouse Shipment Order</strong> documents. Once goods are physically shipped
+from the warehouse, the account is informed of the actions through transmitted
+<strong>945 Warehouse Shipping Advice</strong> documents. The basic outline of the shipping
+process is:</p>
+<ol class="arabic simple">
+<li>A data receiving step writes shipping orders on file</li>
+<li>Orderss are reviewed against inventory and shipments are built</li>
+<li>The warehouse performs physical picking, packing and shipping</li>
+<li>Each shipment is reconciled and verified</li>
+<li>Advice documents are transmitted back to the customer account</li>
+</ol>
+<p>Table 3 outlines how account <strong>940 Warehouse Shipping Order</strong> documents are
+received through EDI and processed in WARES Inventory. Shipments for these
+orders then generate documents such as the <strong>945 Warehouse Shipping Advice</strong>,
+<strong>204 Motor Carrier Shipment Information</strong>, and <strong>856 Ship Notice/Manifest</strong>
+responses which are sent back to the account.</p>
+<p>Table 3.  940 / 945 Process Outline.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="21%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Step</th>
+<th class="head">Description</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>A.1</td>
+<td>Trading Partner</td>
+<td>Produce 940 Warehouse Shipping Order documents</td>
+</tr>
+<tr class="row-odd"><td>A.2</td>
+<td>&nbsp;</td>
+<td>Transmit 940 documents</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Exchange Provider</td>
+<td>(When using an EDI Provider VAN or an FTP site)</td>
+</tr>
+<tr class="row-odd"><td>B.1</td>
+<td>WARES Exchange</td>
+<td>Receive pending data at warehouse</td>
+</tr>
+<tr class="row-even"><td>B.2</td>
+<td>&nbsp;</td>
+<td>Process data stream into 940 documents in RECEIVES</td>
+</tr>
+<tr class="row-odd"><td>B.3</td>
+<td>&nbsp;</td>
+<td><div class="first last line-block">
+<div class="line">Validate documents against EDI standards</div>
+<div class="line">Write 997 Functional Acknowledgments to TRANSMITS</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>B.4</td>
+<td>&nbsp;</td>
+<td><div class="first last line-block">
+<div class="line">Translate accepted 940 documents into Pending ORDERS</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>C.1</td>
+<td>WARES Orders</td>
+<td><div class="first last line-block">
+<div class="line">Complete and check Order data</div>
+<div class="line">Set problem records to Held status</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>C.2</td>
+<td>&nbsp;</td>
+<td>Review Held Orders, makes any corrections</td>
+</tr>
+<tr class="row-odd"><td>C.3</td>
+<td>&nbsp;</td>
+<td>Review product availability per account instructions</td>
+</tr>
+<tr class="row-even"><td>C.4</td>
+<td>&nbsp;</td>
+<td>Build Shipments from unfilled Pending Orders</td>
+</tr>
+<tr class="row-odd"><td>D.1</td>
+<td>WARES Inventory</td>
+<td><div class="first last line-block">
+<div class="line">Review Shipment records for completeness</div>
+<div class="line">Print Picking Tickets, Bills of Lading, other forms</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>D.2</td>
+<td>(warehouse)</td>
+<td>Pick, pack, and ship to shipments in the warehouse</td>
+</tr>
+<tr class="row-odd"><td>D.3</td>
+<td>&nbsp;</td>
+<td>Complete and verify shipment records in WARES</td>
+</tr>
+<tr class="row-even"><td>E.1</td>
+<td>WARES Exchange</td>
+<td><div class="first last line-block">
+<div class="line">Write 945 Warehouse Shipping Advice to TRANSMITS</div>
+<div class="line">Update Pending ORDERS as completed orders</div>
+<div class="line">Write other documents: 856 ASN, 204 B/L, et cetera</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>E.2</td>
+<td>&nbsp;</td>
+<td>Transmit documents</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Exchange Provider</td>
+<td>(When using an EDI Provider VAN or an FTP site)</td>
+</tr>
+<tr class="row-odd"><td>F.1</td>
+<td>Trading Partner</td>
+<td>Download waiting documents and translate them</td>
+</tr>
+<tr class="row-even"><td>F.2</td>
+<td>&nbsp;</td>
+<td>Update sales order records and invoice shipments</td>
+</tr>
+</tbody>
+</table>
+<p>Table 4 charts the user interactions in the above 940/945 process. In step B.1,
+select Exchange/Interchange/Receive to download EDI documents. This program
+sequence culminates with orders on file with status 1 or 2.</p>
+<p>The warehouse staff corrects and posts entries on held orders in step C.2. Step
+C.3 reviews posted Orders for product availability per account instructions.
+Then orders are built into allocated Shipments in step C.4.</p>
+<p>In step D.1, allocated shipments are reviewed for completeness and forms are
+printed. Completed shipments are changed to status 3 (Verified) in step D.3.
+Finally, response documents are retransmitted in step E.2.</p>
+<p>Table 4.  940/945 Chart &#8211; Programs / Processes / User Interactions.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="44%" />
+<col width="13%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Step</th>
+<th class="head">Menu Selection of Action</th>
+<th class="head">Type</th>
+<th class="head">Name or Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>B.1</td>
+<td>Exchange/Interchange/Receive</td>
+<td><div class="first last line-block">
+<div class="line">PROCESS</div>
+<div class="line">PROGRAM</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">ECOM_RCV</div>
+<div class="line">EDI.EXCHANGE</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>B.2</td>
+<td>&nbsp;</td>
+<td>PROGRAM</td>
+<td>EDI.RECEIVE</td>
+</tr>
+<tr class="row-even"><td>B.3</td>
+<td>&nbsp;</td>
+<td>PROGRAM</td>
+<td>EDI.RCV.VALIDATE</td>
+</tr>
+<tr class="row-odd"><td>B.4</td>
+<td>&nbsp;</td>
+<td>PROGRAM</td>
+<td>EDI.RCV.IMPORT</td>
+</tr>
+<tr class="row-even"><td>C.1</td>
+<td>&nbsp;</td>
+<td>PROGRAM</td>
+<td>POST_ORDERS</td>
+</tr>
+<tr class="row-odd"><td>C.2</td>
+<td>Inventory/Orders Pending</td>
+<td>WINDOW</td>
+<td>Review Status 0,1 Orders</td>
+</tr>
+<tr class="row-even"><td>C.3</td>
+<td>Inventory/Orders/Review Orders</td>
+<td>PROGRAM</td>
+<td>ORDERS.REVIEW</td>
+</tr>
+<tr class="row-odd"><td>C.4</td>
+<td>Inventory/Orders/Build Shipments</td>
+<td>PROGRAM</td>
+<td>ORDERS.CALC</td>
+</tr>
+<tr class="row-even"><td>D.1</td>
+<td>Inventory/Shipments</td>
+<td><div class="first last line-block">
+<div class="line">WINDOW</div>
+<div class="line">PRINT</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Review status 1 Shipments</div>
+<div class="line">SHIPMENTS.BOL</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>D.2</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Pick, pack and ship</td>
+</tr>
+<tr class="row-even"><td>D.3</td>
+<td>Inventory/Shipments</td>
+<td>WINDOW</td>
+<td>Verify complete shipments</td>
+</tr>
+<tr class="row-odd"><td>E.1</td>
+<td>&nbsp;</td>
+<td><div class="first last line-block">
+<div class="line">PROGRAM</div>
+<div class="line">PROGRAM</div>
+<div class="line">PROGRAM</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">POST_EDI.TRANSMIT</div>
+<div class="line">EDI.SUBS,ORDERS</div>
+<div class="line">POST_EDI.TRANSMIT</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>E.2</td>
+<td>Exchange/Interchange/Transmit</td>
+<td><div class="first last line-block">
+<div class="line">PROCESS</div>
+<div class="line">PROGRAM</div>
+<div class="line">PROGRAM</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">ECOM_SND</div>
+<div class="line">EDI.EXCHANGE</div>
+<div class="line">EDI.TRANSMIT</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="inventory-reporting">
+<h1>846 Inventory Reporting<a class="headerlink" href="#inventory-reporting" title="Permalink to this headline">¶</a></h1>
+<p>The 846 Inventory Inquiry/Advice transaction set allows trading partners to
+reconcile their inventory with your records.</p>
+<div class="section" id="process">
+<h2>Process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h2>
+<p>The Inventory 846 process first displays a Select Details (XQ) collector
+window. Use the index selection options to specify the criteria for the lots
+you wish to include in the Advice records. Then press [F9] to create the
+transaction sets.</p>
+<p>Each completed transaction set is written to the TRANSMITS file, and will be
+sent during the next EDI Transmit.  One or more advice transactions will be
+created depending on the number of lot detail records being reported.</p>
+</div>
+<div class="section" id="program-notes">
+<h2>846 Program Notes<a class="headerlink" href="#program-notes" title="Permalink to this headline">¶</a></h2>
+<p>Process record EDI_846 controls 846 inventory reporting. 846 reporting could be
+automated by scheduling this process. The EDI documents are built by program POST_EDI.TRANSMIT. The parameters for this program are:</p>
+<blockquote>
+<div>846: the transaction set identifier,
+PARTNER_846: the dictionary fieldname that evaluates to a partner key, and
+DETAILS: the name of the file being processed.</div></blockquote>
+<p>The 846 process selects only inventory lots with quantity greater than zero for
+reporting, and the lots are sorted by account and then stock number.</p>
+<p>The DETAILS dictionary field PARTNER_846 is evaluated for each record to
+determine the partner identifier, and a reporting break occurs whenever the
+partner identifier changes.  Lot records with a null partner key, without an
+846 map, or where the map status is less than 2 will not be reported.  (The
+PARTNER_846 dictionary returns null when an 846 map is not found.)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="22_ftp-van.html" title="EDI Overview"
+             >next</a></li>
+        <li class="right" >
+          <a href="15_856-guide.html" title="856 ASN Receipt"
+             >previous</a> |</li>
+        <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Gerald Lovel.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

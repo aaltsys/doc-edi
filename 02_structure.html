@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>EDI Documents &mdash; Electronic Data Interchange 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Electronic Data Interchange 1.0 documentation" href="index.html" />
+    <link rel="next" title="Standards Viewer" href="03_viewer.html" />
+    <link rel="prev" title="X12 Standards" href="01_standards.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="03_viewer.html" title="Standards Viewer"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="01_standards.html" title="X12 Standards"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">EDI Documents</a><ul>
+<li><a class="reference internal" href="#transaction-set">Transaction Set</a></li>
+<li><a class="reference internal" href="#data-segment">Data Segment</a><ul>
+<li><a class="reference internal" href="#segment-identifier">Segment identifier</a></li>
+<li><a class="reference internal" href="#requirement-designator">Requirement designator</a></li>
+<li><a class="reference internal" href="#sequence">Sequence</a></li>
+<li><a class="reference internal" href="#maximum-use">Maximum Use</a></li>
+<li><a class="reference internal" href="#loops">Loops</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exchange-control-segments">Exchange Control Segments</a></li>
+<li><a class="reference internal" href="#notes-and-comments">Notes and Comments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#segments">Segments</a><ul>
+<li><a class="reference internal" href="#segment-name-heading">Segment Name Heading</a><ul>
+<li><a class="reference internal" href="#id2">Segment identifier</a></li>
+<li><a class="reference internal" href="#segment-terminator">Segment terminator</a></li>
+<li><a class="reference internal" href="#data-element-separator">Data element separator</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#segment-details-body">Segment Details Body</a><ul>
+<li><a class="reference internal" href="#data-element-position">Data Element Position</a></li>
+<li><a class="reference internal" href="#data-element-reference-designator">Data Element Reference Designator</a></li>
+<li><a class="reference internal" href="#data-element">Data Element</a></li>
+<li><a class="reference internal" href="#id3">Requirement Designator</a></li>
+<li><a class="reference internal" href="#relational-conditions">Relational Conditions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#segment-notes-footer">Segment Notes footer</a><ul>
+<li><a class="reference internal" href="#id4">Notes and Comments</a></li>
+<li><a class="reference internal" href="#syntax-notes">Syntax Notes</a></li>
+<li><a class="reference internal" href="#semantic-notes">Semantic Notes</a></li>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#composites">Composites</a><ul>
+<li><a class="reference internal" href="#composites-name-header">Composites Name Header</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#reference-identifier">Reference Identifier</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#composites-details-body">Composites Details Body</a><ul>
+<li><a class="reference internal" href="#composite-details-table">Composite Details Table</a></li>
+<li><a class="reference internal" href="#component-data-elements">Component Data Elements</a></li>
+<li><a class="reference internal" href="#sequence-number">Sequence Number</a></li>
+<li><a class="reference internal" href="#id6">Requirement Designator</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#composite-notes-footer">Composite Notes Footer</a><ul>
+<li><a class="reference internal" href="#id7">Notes and Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#elements">Elements</a><ul>
+<li><a class="reference internal" href="#element-name-header">Element Name Header</a><ul>
+<li><a class="reference internal" href="#id9">Description</a></li>
+<li><a class="reference internal" href="#type">Type</a></li>
+<li><a class="reference internal" href="#length">Length</a></li>
+<li><a class="reference internal" href="#reference-number">Reference Number</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#element-details-body">Element Details Body</a><ul>
+<li><a class="reference internal" href="#code-values">Code Values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="01_standards.html"
+                        title="previous chapter">X12 Standards</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="03_viewer.html"
+                        title="next chapter">Standards Viewer</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/02_structure.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="edi-documents">
+<span id="documents"></span><h1>EDI Documents<a class="headerlink" href="#edi-documents" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="transaction-set">
+<span id="sets"></span><h2>Transaction Set<a class="headerlink" href="#transaction-set" title="Permalink to this headline">¶</a></h2>
+<p>A transaction set is the definition of the meaningful data collection exchanged
+between two parties which comprises a complete business document. Each
+transaction set is composed of a specific assemblage of segments that represent
+a common business document (for example, a purchase order or an invoice). Each
+transaction set consists of the transaction set header (ST) as the first segment
+and contains at least one data segment before the transaction set trailer (SE).</p>
+</div>
+<div class="section" id="data-segment">
+<h2>Data Segment<a class="headerlink" href="#data-segment" title="Permalink to this headline">¶</a></h2>
+<p>A segment is the intermediate unit of information in a transaction set. Segments
+consist of logically related data elements in a defined sequence. EDI Standards
+describe the relationship between segments which combine to form a transaction
+set. Specifically, set definitions list segments in their sequence of
+occurrence, designate them as required mandatory or optional or floating, and
+define their frequency of repeating or group looping.</p>
+<div class="section" id="segment-identifier">
+<h3>Segment identifier<a class="headerlink" href="#segment-identifier" title="Permalink to this headline">¶</a></h3>
+<p>A unique segment identifier comprises the first characters of the segment.
+This identifier is a combination of two or three letters or digits.</p>
+</div>
+<div class="section" id="requirement-designator">
+<h3>Requirement designator<a class="headerlink" href="#requirement-designator" title="Permalink to this headline">¶</a></h3>
+<p>One of the following three designators defines a segment&#8217;s requirement to
+appear in the transaction set:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Mandatory (M)</td>
+<td>This segment shall appear at least once</td>
+</tr>
+<tr class="row-even"><td>Optional (O)</td>
+<td>This segment appears at the option of the sender</td>
+</tr>
+<tr class="row-odd"><td>Floating (F)</td>
+<td>This designation is used with the NTE segment, which
+may appear anywhere within the transaction set</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sequence">
+<h3>Sequence<a class="headerlink" href="#sequence" title="Permalink to this headline">¶</a></h3>
+<p>Each segment is assigned to a specific position in the sequence of segments in
+the transaction set. Within a transmission, segments shall appear in this
+order except for segments which are designated <em>Floating</em>.</p>
+</div>
+<div class="section" id="maximum-use">
+<h3>Maximum Use<a class="headerlink" href="#maximum-use" title="Permalink to this headline">¶</a></h3>
+<p>Each segment is permitted to appear in succession a maximum number of times at
+a specific location within a transaction set. The symbol <cite>&gt;1</cite> indicates that
+a segments may be used one or more times at its specific location in the
+transaction set.</p>
+</div>
+<div class="section" id="loops">
+<h3>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h3>
+<p>In the transaction set tables, the segments comprising a loop are designated
+by the loop identifier at the starting segment, and the level indicating the
+continuation of the loop. The loop repeat next to the loop identifier shows
+the number of times the loop may be used at that specific location. The symbol
+<cite>&gt;1</cite> indicates that a loop may be used one or more times.</p>
+<ul class="simple">
+<li>Loops may be nested within other loops. The level column in the standards
+indicates the current nesting level.</li>
+<li>If the requirement designator of the first segment in a loop is Mandatory,
+at least one iteration of the loop must occur.</li>
+<li>If a loop is used, the first segment shall be used in each loop iteration.</li>
+<li>Mandatory segments within a loop are mandatory only if the loop is used.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="exchange-control-segments">
+<h2>Exchange Control Segments<a class="headerlink" href="#exchange-control-segments" title="Permalink to this headline">¶</a></h2>
+<p>Each data exchange has control segments which envelope the entire exchange,
+additional segments to group like documents, and segments which indicate the
+start and end of each document. These special segments are as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="35%" />
+<col width="0%" />
+<col width="15%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Segment</th>
+<th class="head">Segment Name</th>
+<th class="head">&nbsp;</th>
+<th class="head">Segment</th>
+<th class="head">Segment Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ISA</td>
+<td>Interchange Start</td>
+<td>&nbsp;</td>
+<td>IEA</td>
+<td>Interchange End</td>
+</tr>
+<tr class="row-odd"><td>GS</td>
+<td>Group Start</td>
+<td>&nbsp;</td>
+<td>GE</td>
+<td>Group End</td>
+</tr>
+<tr class="row-even"><td>ST</td>
+<td>Set Start</td>
+<td>&nbsp;</td>
+<td>SE</td>
+<td>Set End</td>
+</tr>
+</tbody>
+</table>
+<p>Control segments contain additional information about the exchange, including
+sequence numbers which may be used to manage the exchange process. Some of
+this information is described following:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="29%" />
+<col width="29%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Segment</th>
+<th class="head">Control sequence</th>
+<th class="head" colspan="2">Included information elements</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ISA</td>
+<td>Interchange Control</td>
+<td>transmit Date, Time</td>
+<td>Sender, Receiver IDs</td>
+</tr>
+<tr class="row-odd"><td>IEA</td>
+<td>Interchange control</td>
+<td colspan="2">number of included groups</td>
+</tr>
+<tr class="row-even"><td>GS</td>
+<td>Group Control</td>
+<td>group ID, Date, Time</td>
+<td>Sender, Receiver codes</td>
+</tr>
+<tr class="row-odd"><td>GE</td>
+<td>Group control</td>
+<td colspan="2">number of included sets</td>
+</tr>
+<tr class="row-even"><td>ST</td>
+<td>Set Control Number</td>
+<td colspan="2">transaction set ID (defined in DE 143)</td>
+</tr>
+<tr class="row-odd"><td>SE</td>
+<td>Set Control Number</td>
+<td colspan="2">number of included segments</td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, the first data element of each transaction set start segment
+(ST) is an identifier of the set type. Codes for element <cite>143</cite> in the Data
+Element Dictionary list possible set identifiers.</p>
+<p>EDI standards associate a functional group identifier code with each set
+identifier in DE 143. Functional Group Identifier codes are defined in the
+Data Element Dictionary under element <cite>479</cite>, Functional Group Identifier.
+In cases where no functional group is given, the transaction set assumes the
+functional group ID of the functional group with which it is transmitted.</p>
+</div>
+<div class="section" id="notes-and-comments">
+<h2>Notes and Comments<a class="headerlink" href="#notes-and-comments" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Where notes are provided, these are considered part of the standard.</div>
+<div class="line">Comments are not a part of the standard.</div>
+<div class="line">Multiple notes and comments may appear for the same segment.</div>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="segments">
+<span id="id1"></span><h1>Segments<a class="headerlink" href="#segments" title="Permalink to this headline">¶</a></h1>
+<p>A segment is the intermediate unit of information in a transaction set. Segments
+consist of logically related data elements in a defined sequence. Each segment
+has a unique identifier that comprises the first characters of the segment. When
+segments are combined to form a transaction set, their relationship to the
+transaction set is defined by a segment requirement designator and a segment
+sequence. Some segments may be repeated, and groups of segments may be repeated
+as loops.</p>
+<div class="section" id="segment-name-heading">
+<h2>Segment Name Heading<a class="headerlink" href="#segment-name-heading" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>Segment identifier<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Each segment has a unique identifier comprised of two or three letters or
+digits. This identifier is the first entry in the segment data.</p>
+</div>
+<div class="section" id="segment-terminator">
+<h3>Segment terminator<a class="headerlink" href="#segment-terminator" title="Permalink to this headline">¶</a></h3>
+<p>Each segment ends with a segment terminator specified by the sender in the
+Interchange Control Header segment (ISA). The segment terminator must be
+different from the data element separator, described below. The segment
+terminator and data element and subelement separators must not appear in a
+data element value except for possibly Binary Data Element <cite>785</cite>.</p>
+</div>
+<div class="section" id="data-element-separator">
+<h3>Data element separator<a class="headerlink" href="#data-element-separator" title="Permalink to this headline">¶</a></h3>
+<p>Each data element in a segment is preceded by a separator character, or, in
+the case of composite data structures, a subelement separator. The data
+element separator and subelement separator must be different from the segment
+terminator.</p>
+<p>If optional data elements occurring at the end of a segment are not used, the
+data element separators need not be transmitted. Similarly, subelement
+separators at the end of a composite data structure need not be transmitted.</p>
+</div>
+</div>
+<div class="section" id="segment-details-body">
+<h2>Segment Details Body<a class="headerlink" href="#segment-details-body" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-element-position">
+<h3>Data Element Position<a class="headerlink" href="#data-element-position" title="Permalink to this headline">¶</a></h3>
+<p>Data elements are assigned a specific position within a segment. In a
+transmission, the segment is terminated after the last data element used.
+In this case, the presence of the segment terminator signifies that the
+remaining data elements have been omitted. The omission of data elements
+other than at the end of a segment is signified by successive data element
+separators, or, in the case of a composite data structure, subelement
+separators.</p>
+</div>
+<div class="section" id="data-element-reference-designator">
+<h3>Data Element Reference Designator<a class="headerlink" href="#data-element-reference-designator" title="Permalink to this headline">¶</a></h3>
+<p>Each data element in a segment is assigned a number to indicate its sequential
+position within that segment. The counting of positions starts with <cite>01</cite> for
+the first data element and is incremented by one for each successive element
+to the end of the segment.</p>
+</div>
+<div class="section" id="data-element">
+<h3>Data Element<a class="headerlink" href="#data-element" title="Permalink to this headline">¶</a></h3>
+<p>A data element can represent a qualifier, a value, or text. Each data element
+is identified by a reference number. Reference numbers which begin with a
+<cite>C</cite> or an <cite>S</cite> indicate that the data element is a composite.</p>
+</div>
+<div class="section" id="id3">
+<h3>Requirement Designator<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>One of the following three requirement designators specifies the need for a data
+element to appear within the segment:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Mandatory (M)</td>
+<td>This element is required to appear in the segment</td>
+</tr>
+<tr class="row-even"><td>Optional (O)</td>
+<td>The occurrence of this data element is optional</td>
+</tr>
+<tr class="row-odd"><td>Relational (X or C)</td>
+<td>A relational condition applies to this element</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="relational-conditions">
+<h3>Relational Conditions<a class="headerlink" href="#relational-conditions" title="Permalink to this headline">¶</a></h3>
+<p>Relational Conditions may exist between two or more data elements within a
+segment based on the presence or absence of one of those data elements.
+Relational conditions are specified by a condition code, <cite>P</cite>, <cite>R</cite>, <cite>E</cite>, <cite>C</cite>, or
+<cite>L</cite>, and the identities of the related elements. The types of relational
+conditions are further documented in the syntax notes entry help.</p>
+<p><em>In the standards viewer, relational conditions are indicated by an &#8220;X&#8221; in the
+Requirement column.</em></p>
+</div>
+</div>
+<div class="section" id="segment-notes-footer">
+<h2>Segment Notes footer<a class="headerlink" href="#segment-notes-footer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Notes and Comments<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Syntax and semantic notes which appear under the segment are considered part of
+the standard. Where comments are included, they are not considered part of the
+standard.</p>
+</div>
+<div class="section" id="syntax-notes">
+<h3>Syntax Notes<a class="headerlink" href="#syntax-notes" title="Permalink to this headline">¶</a></h3>
+<p>Dependencies based on the presence or absence of other data elements are shown
+as syntax notes. The dependencies described by these notes are also represented
+by the relational condition codes described above.</p>
+</div>
+<div class="section" id="semantic-notes">
+<h3>Semantic Notes<a class="headerlink" href="#semantic-notes" title="Permalink to this headline">¶</a></h3>
+<p>Semantic notes provide additional information about the intended meaning of a
+data element in the context of a segment. The note may also define a
+relationship among data elements based on the presence of one or more values in
+one if the data elements. Semantic notes are part of the standard.</p>
+</div>
+<div class="section" id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<p>Comments are provided to clarify or aid in understanding the intended use of
+the segment. Comments are not considered part of the standard.</p>
+<hr class="docutils" />
+</div>
+</div>
+</div>
+<div class="section" id="composites">
+<span id="id5"></span><h1>Composites<a class="headerlink" href="#composites" title="Permalink to this headline">¶</a></h1>
+<p>A composite data structure consists of two or more logically related component
+data elements in a defined sequence. (The component data elements are defined in
+the Data Element Dictionary.) The specification of composite data structures
+consists of the following parts.</p>
+<div class="section" id="composites-name-header">
+<h2>Composites Name Header<a class="headerlink" href="#composites-name-header" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>Each composite data structure is named and defined in a description statement
+that specifies the purpose of the composite.</p>
+</div>
+<div class="section" id="reference-identifier">
+<h3>Reference Identifier<a class="headerlink" href="#reference-identifier" title="Permalink to this headline">¶</a></h3>
+<p>Each composite data structure has a unique four-character reference identifier.
+The first character of the identifier is an <cite>S</cite> when the composite data
+structure is used in a control segment and a <cite>C</cite> when it is used in a data
+segment. The remaining characters are digits.</p>
+</div>
+</div>
+<div class="section" id="composites-details-body">
+<h2>Composites Details Body<a class="headerlink" href="#composites-details-body" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="composite-details-table">
+<h3>Composite Details Table<a class="headerlink" href="#composite-details-table" title="Permalink to this headline">¶</a></h3>
+<p>A detail table presents the component elements of the composite structure and
+is displayed in the Detail Body tab.</p>
+</div>
+<div class="section" id="component-data-elements">
+<h3>Component Data Elements<a class="headerlink" href="#component-data-elements" title="Permalink to this headline">¶</a></h3>
+<p>When component data elements are combined to form a composite data structure,
+their relationship to the composite data structure is defined by a component
+data element sequence and a component data element requirement designator.</p>
+</div>
+<div class="section" id="sequence-number">
+<h3>Sequence Number<a class="headerlink" href="#sequence-number" title="Permalink to this headline">¶</a></h3>
+<p>The component data element sequence number indicates an element&#8217;s position in
+the composite data structure.</p>
+<p><em>This column is labeled &#8220;Seq&#8221; in the details table.</em></p>
+</div>
+<div class="section" id="id6">
+<h3>Requirement Designator<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>A component data element is assigned one of three requirement designators:
+<cite>M</cite> for mandatory, <cite>O</cite> for optional, or <cite>X</cite> for conditional relationships.</p>
+<p><em>The &#8220;Cond&#8221; and &#8220;Relation&#8221; columns show relational conditions, which are further
+defined in the syntax notes entry help. The requirement designator is in column
+&#8220;Req&#8221; of the details table.</em></p>
+</div>
+</div>
+<div class="section" id="composite-notes-footer">
+<h2>Composite Notes Footer<a class="headerlink" href="#composite-notes-footer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>Notes and Comments<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Notes and comments are provided to clarify or aid in understanding the intended
+use of the composite data structure. Notes are part of the standard, while
+comments are not.</p>
+<hr class="docutils" />
+</div>
+</div>
+</div>
+<div class="section" id="elements">
+<span id="id8"></span><h1>Elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h1>
+<p>Simple data elements are the basic units used in constructing composite data
+structures and segments, which in turn comprise transaction sets in ASC X12.</p>
+<p>A data element can represent a qualifier, a value, or text (such as a
+description). Each data element is identified by a number used for reference in
+the Data Element Dictionary, which defines specifications for each data element.
+This specification consists of the following parts.</p>
+<div class="section" id="element-name-header">
+<h2>Element Name Header<a class="headerlink" href="#element-name-header" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>Description<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Each data element is defined in a description statement that specifies the
+purpose of the data element.</p>
+</div>
+<div class="section" id="type">
+<h3>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<p>A data element may be of one of eight types: numeric, decimal, identifier,
+string, date, time, binary, or fixed-length string.</p>
+<p><em>The requirements of each element type are stated in the help for the &#8220;TYPE&#8221;
+entry.</em></p>
+</div>
+<div class="section" id="length">
+<h3>Length<a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h3>
+<p>This is the range, minimum to maximum, of the number of character positions
+available to represent the data element value. A data element may be of variable
+length with range from minimum to maximum, or it may be of fixed length in which
+the minimum is equal to the maximum. Length is defined differently for numbers
+than for other types of data elements.</p>
+<p><em>The range length is shown in the standard as &#8220;MIN&#8221; and &#8220;MAX&#8221;. Refer to the help
+for &#8220;MIN&#8221; and &#8220;MAX&#8221; entries for further information.</em></p>
+</div>
+<div class="section" id="reference-number">
+<h3>Reference Number<a class="headerlink" href="#reference-number" title="Permalink to this headline">¶</a></h3>
+<p>Data elements are identified by a unique reference number. This reference number
+is used in all segments. Reference numbers which begin with a <cite>C</cite> or an <cite>S</cite>
+indicate that the data element is a composite rather than a simple data element.</p>
+</div>
+</div>
+<div class="section" id="element-details-body">
+<h2>Element Details Body<a class="headerlink" href="#element-details-body" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="code-values">
+<h3>Code Values<a class="headerlink" href="#code-values" title="Permalink to this headline">¶</a></h3>
+<p>Data Element code values, definitions, and explanations are listed for data
+elements of type <cite>ID</cite> (identifier). An identifier data element must always
+contain a value from a predefined list of values. A sample table of code values
+and their descriptions are shown in the table below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="11%" />
+<col width="9%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Part</th>
+<th class="head">Code</th>
+<th class="head">Para</th>
+<th class="head">Code Definition</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&nbsp;</td>
+<td>A</td>
+<td>1</td>
+<td>Shipper&#8217;s Weight Agreement</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>C</td>
+<td>1</td>
+<td>Consignee Scale Weight</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>D</td>
+<td>1</td>
+<td>Destination Weight Agreement</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>E</td>
+<td>1</td>
+<td>Estimated Weight</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>F</td>
+<td>1</td>
+<td>Public Scale Weight on Behalf of Consignee</td>
+</tr>
+<tr class="row-odd"><td>.</td>
+<td>.</td>
+<td>.</td>
+<td>. . .</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="03_viewer.html" title="Standards Viewer"
+             >next</a></li>
+        <li class="right" >
+          <a href="01_standards.html" title="X12 Standards"
+             >previous</a> |</li>
+        <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Gerald Lovel.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Standards Viewer &mdash; Electronic Data Interchange 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Electronic Data Interchange 1.0 documentation" href="index.html" />
+    <link rel="next" title="940 Ship Order" href="11_940-guide.html" />
+    <link rel="prev" title="EDI Documents" href="02_structure.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="11_940-guide.html" title="940 Ship Order"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="02_structure.html" title="EDI Documents"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Standards Viewer</a><ul>
+<li><a class="reference internal" href="#viewer-structure">Viewer Structure</a></li>
+<li><a class="reference internal" href="#viewer-action-keys">Viewer Action Keys</a></li>
+<li><a class="reference internal" href="#corrections-to-table-data">Corrections to Table Data</a><ul>
+<li><a class="reference internal" href="#apostrophes">Apostrophes</a></li>
+<li><a class="reference internal" href="#maxuse">Maxuse</a></li>
+<li><a class="reference internal" href="#repeats">Repeats</a></li>
+<li><a class="reference internal" href="#spelling">Spelling</a></li>
+<li><a class="reference internal" href="#conditions-and-requirements">Conditions and requirements</a></li>
+<li><a class="reference internal" href="#requirement-designator">Requirement designator</a></li>
+<li><a class="reference internal" href="#semantic-notes">Semantic notes</a></li>
+<li><a class="reference internal" href="#component-data-elements">Component data elements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#standards-inconsistencies">Standards Inconsistencies</a><ul>
+<li><a class="reference internal" href="#maxuse-and-repeat">Maxuse and repeat</a></li>
+<li><a class="reference internal" href="#loop-and-segment-requirement">Loop and segment requirement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="02_structure.html"
+                        title="previous chapter">EDI Documents</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="11_940-guide.html"
+                        title="next chapter">940 Ship Order</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/03_viewer.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="standards-viewer">
+<span id="viewer"></span><h1>Standards Viewer<a class="headerlink" href="#standards-viewer" title="Permalink to this headline">¶</a></h1>
+<p>WARES includes a viewer program for navigating the X12 document standards
+heirarchy, as well as a full data-driven mapper tool. The viewer is based on
+standards table data from DISA.</p>
+<div class="section" id="viewer-structure">
+<h2>Viewer Structure<a class="headerlink" href="#viewer-structure" title="Permalink to this headline">¶</a></h2>
+<p>EDI standards provide a hierarchical, structured approach to representing
+the information in business documents. The viewer accurately reflects this
+hierarchy, with each level of the standards having a corresponding
+documentation window in the viewer. These documentation windows may be
+selected from the Standards menu.</p>
+<p>Levels of the standards hierarchy are interrelated through detail tables.
+Sets have detail tables which show segments within the sets. Segments and
+composites have tables showing their element members. Identifier type data
+elements have corresponding code tables. Each detail table is shown in a
+columnar popup display in the viewer. These popups are accessible from the
+documentation windows, or from the popups at higher levels.</p>
+<p>The viewer hierarchy is navigated with certain keystrokes. Pressing
+<tt class="kbd docutils literal"><span class="pre">&lt;Enter&gt;</span></tt> on a line of a detail popup moves to a detail popup at the
+next-lower level of the standards hierarchy. Pressing <tt class="kbd docutils literal"><span class="pre">[F1]</span></tt> on a popup
+line views the standards documentation page for the next-lower level. In the
+documentation windows, pressing <tt class="kbd docutils literal"><span class="pre">[SF1]</span></tt> displays the detail table for that
+page. Pressing <tt class="kbd docutils literal"><span class="pre">&lt;Esc&gt;</span></tt> moves from a lower level to a higher one.</p>
+<p>The following table shows viewer detail popup and documentation window
+levels, and the keystroke relationships between levels:</p>
+<div class="highlight-python"><pre>┌────────────────────────────────────────────────────────────────────────┐
+│                                                                        │
+│                                                 [SF1]   [F1]  &lt;Enter&gt;  │
+│  Sets Selection Popup                                   ──┐      ──┐   │
+│  │ Sets Documentation Window                     ──┐    &lt;─┘        │   │
+│  │ │ Set Details Table                           &lt;─┘    ──┐      &lt;─┤   │
+│  │ │ │ Segments Documentation Window             ──┐    &lt;─┘        │   │
+│  │ │ │ │ Segment Details Table                   &lt;─┘    ──┬──┐   &lt;─┤   │
+│  │ │ │ │ │ Composite Structures Window           ──┐    &lt;─┘  │     │   │
+│  │ │ │ │ │ │ Composite Details Table             &lt;─┘    ──┐  │   &lt;─┤   │
+│  │ │ │ │ │ │ │ Data Elements Window              ──┐    &lt;─┘&lt;─┘     │   │
+│  │ │ │ │ │ │ │ │ Element Codes Details Table     &lt;─┘    ──┐      &lt;─┤   │
+│  │ │ │ │ │ │ │ │ │ Element Code Documentation           &lt;─┘      &lt;─┘   │
+│                                                                        │
+└────────────────────────────────────────────────────────────────────────┘</pre>
+</div>
+</div>
+<div class="section" id="viewer-action-keys">
+<h2>Viewer Action Keys<a class="headerlink" href="#viewer-action-keys" title="Permalink to this headline">¶</a></h2>
+<p>The viewer uses five types of interface elements to display information:
+menus, windows, popups, messages, and text. The active keys for each part of
+the interface are shown in the following table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>MENUS</td>
+<td>&lt;Up&gt;</td>
+<td>Move the selection highlight up one entry</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&lt;Down&gt;</td>
+<td>Move the selection highlight down one entry</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&lt;Home&gt;</td>
+<td>Move the selection to the first entry of the menu</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&lt;End&gt;</td>
+<td>Move the selection to the last entry of the menu</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&lt;Enter&gt;</td>
+<td>Select the highlighted entry</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>[F1]</td>
+<td>Display help for the highlighted entry</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WINDOWS</td>
+<td>[F1]</td>
+<td>Display help for the current entry of the window</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>[F3]</td>
+<td>Zoom the entry into a text window</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>[F10]</td>
+<td>Use the window&#8217;s menu</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>[SF1]</td>
+<td>Display the detail table for the current record</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>[SF10]</td>
+<td>Display a list of selected records</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>POPUPS</td>
+<td>&lt;Up&gt;</td>
+<td>Move the highlight up one line</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&lt;Down&gt;</td>
+<td>Move the highlight down one line</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&lt;Enter&gt;</td>
+<td>Display the detail popup for the highlighted line</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>[F1]</td>
+<td>Show the window for the highlighted line</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>MESSAGES</td>
+<td>&lt;Enter&gt;</td>
+<td>Close the message</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>TEXT</td>
+<td>&lt;Esc&gt;</td>
+<td>Close the Zoom Text or Help Text window</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="corrections-to-table-data">
+<h2>Corrections to Table Data<a class="headerlink" href="#corrections-to-table-data" title="Permalink to this headline">¶</a></h2>
+<p>In the standards viewer, DISA table data was altered for consistency between
+standards versions. Changes in presentation are itemized following.</p>
+<div class="section" id="apostrophes">
+<h3>Apostrophes<a class="headerlink" href="#apostrophes" title="Permalink to this headline">¶</a></h3>
+<p>Where doubled apostrophe characters were found in text, they were changed to the
+quote mark (&#8221;). Left apostrophe characters (`) were changed to apostrophes
+(&#8216;). (The left apostrophe, or backtick, is not in the permissible character set
+for use with EDI.)</p>
+</div>
+<div class="section" id="maxuse">
+<h3>Maxuse<a class="headerlink" href="#maxuse" title="Permalink to this headline">¶</a></h3>
+<p>Whenever the Maxuse column in Set Details was not filled in, the null value was
+replaced with the number <cite>1</cite>.</p>
+</div>
+<div class="section" id="repeats">
+<h3>Repeats<a class="headerlink" href="#repeats" title="Permalink to this headline">¶</a></h3>
+<p>Null values in the Repeat column of Set Details were replaced with <cite>0</cite>.</p>
+</div>
+<div class="section" id="spelling">
+<h3>Spelling<a class="headerlink" href="#spelling" title="Permalink to this headline">¶</a></h3>
+<p>Numerous spelling errors in the data were detected but not corrected.</p>
+</div>
+<div class="section" id="conditions-and-requirements">
+<h3>Conditions and requirements<a class="headerlink" href="#conditions-and-requirements" title="Permalink to this headline">¶</a></h3>
+<p>In the standards, the &#8220;Condition Designator&#8221; has a &#8220;Condition Code&#8221; and a
+&#8220;Requirement&#8221;, and the &#8220;Relational Conditions&#8221; have a &#8220;Condition Code&#8221; and a
+&#8220;Requirement.&#8221; The Condition Designator is alternately referred to as the
+&#8220;Requirement Designator&#8221; in the standards, and this nomenclature is adopted in
+the viewer. The Requirement Designator (detail tables column &#8220;Req&#8221;) has a
+requirement code, and Relational Conditions have a condition code (detail tables
+column &#8220;Cond&#8221;) and a Relation reference list (column &#8220;Relation&#8221;).</p>
+<p>In the standards, requirement codes with related element lists are displayed in
+syntax notes along with the note text. The viewer has additional columns for
+the Condition Codes and Relation lists in the detail table displays as stated in
+the previous paragraph. The syntax notes text is displayed in the Segments and
+Composites windows without the code values. Element reference lists in syntax
+codes are shown as a sequence of two-digit numbers in the standards. In the
+viewer, the lists are shown as reference numbers separated by commas. When more
+than one relational condition applies to an element, the condition codes and
+relation lists are separated by semicolons.</p>
+</div>
+<div class="section" id="requirement-designator">
+<h3>Requirement designator<a class="headerlink" href="#requirement-designator" title="Permalink to this headline">¶</a></h3>
+<p>Table data for the standards uses a <cite>C</cite> in the Requirement Designator to show
+that a relational condition exists. Published standards now use <cite>X</cite> instead of
+<cite>C</cite>, and the viewer has changed the table data for consistency.</p>
+</div>
+<div class="section" id="semantic-notes">
+<h3>Semantic notes<a class="headerlink" href="#semantic-notes" title="Permalink to this headline">¶</a></h3>
+<p>Semantic notes are annotated in the published standards by adding a <cite>Z</cite> to the
+Requirement Designator. A separate notes indicator column displays the semantic
+notes indicator <cite>Z</cite> in the viewer.</p>
+</div>
+<div class="section" id="component-data-elements">
+<h3>Component data elements<a class="headerlink" href="#component-data-elements" title="Permalink to this headline">¶</a></h3>
+<p>Simple Data Elements may be made up of multiple parts, as is the case with DE
+103. The viewer separates code values by part in the Data Element details table.
+A length for the parts is also maintained internally in the data, although not
+shown in the details tables. Data Element parts are not described within the
+body of the standards.</p>
+</div>
+</div>
+<div class="section" id="standards-inconsistencies">
+<h2>Standards Inconsistencies<a class="headerlink" href="#standards-inconsistencies" title="Permalink to this headline">¶</a></h2>
+<p>Inconsistencies in standards versions and usage are noted as follows.</p>
+<div class="section" id="maxuse-and-repeat">
+<h3>Maxuse and repeat<a class="headerlink" href="#maxuse-and-repeat" title="Permalink to this headline">¶</a></h3>
+<p>The Maximum Use column is defined in DE 905 as type=N0, min=1, max=7. The
+standards represent an unlimited use with the notation <cite>&gt;1</cite>. Since this violates
+the numeric data element definition, the number <cite>9999999</cite> is used in data
+transmission to show an infinite repeat. The standards use the same notation for
+DE 910, Loop Repeat Count. The viewer preserves the standards notation <cite>&gt;1</cite>
+despite this inconsistency.</p>
+</div>
+<div class="section" id="loop-and-segment-requirement">
+<h3>Loop and segment requirement<a class="headerlink" href="#loop-and-segment-requirement" title="Permalink to this headline">¶</a></h3>
+<p>The requirement designation for an unbounded loop is implicitly the same as the
+requirement designation of the loop&#8217;s first segment. However, a separate column
+explicitly defines the loop repeat, whereas the first segment&#8217;s maximum use
+designation could have implicitly defined the loop repeat.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="11_940-guide.html" title="940 Ship Order"
+             >next</a></li>
+        <li class="right" >
+          <a href="02_structure.html" title="EDI Documents"
+             >previous</a> |</li>
+        <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Gerald Lovel.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

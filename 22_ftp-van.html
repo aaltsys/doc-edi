@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>EDI Overview &mdash; Electronic Data Interchange 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Electronic Data Interchange 1.0 documentation" href="index.html" />
+    <link rel="next" title="Receive/Transmit" href="23_receive-send.html" />
+    <link rel="prev" title="EDI Operations" href="21_operations.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="23_receive-send.html" title="Receive/Transmit"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="21_operations.html" title="EDI Operations"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="21_operations.html"
+                        title="previous chapter">EDI Operations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="23_receive-send.html"
+                        title="next chapter">Receive/Transmit</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/22_ftp-van.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="edi-overview">
+<span id="o"></span><h1>EDI Overview<a class="headerlink" href="#edi-overview" title="Permalink to this headline">¶</a></h1>
+<p>EDI automates information exchange between trading partners, and it reduces the
+information processing work as well. The process of EDI may consolidate many
+types of information exchange, performing all transfers at the same time. The
+following topics show how a single process for data exchange can be decomposed
+into two types of warehouse operations, receiving and shipping, each with its
+own operational sequence.</p>
+<hr class="docutils" />
+<p>TRANSFERRING EDI DATA THROUGH FTP</p>
+<p>Traditional EDI uses store-and-forward mail service bureaus, or Value Added
+Networks (VANs), to transfer data. These networks provide data consolidation,
+distribution, storage, reporting, and other services to guarantee reliable data
+transfer. Desktop e-mail software cannot replace the functions of a VAN,
+because e-mail lacks the automation, data replication, and consolidation and
+distribution functions which a VAN provides. However, EDI data may be
+transferred using FTP (File Transfer Protocol) through an Internet Service
+Provider (ISP) without recourse to a VAN.</p>
+<p>Table 5.  Process Outline.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Step</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>A.1</td>
+<td>Extract data to send to a single partner</td>
+</tr>
+<tr class="row-odd"><td>A.2</td>
+<td>Update database to mark extracted records</td>
+</tr>
+<tr class="row-even"><td>A.3</td>
+<td>Convert data to EDI documents and save in CONNECTTRANSMIT.EDI</td>
+</tr>
+<tr class="row-odd"><td>A.4</td>
+<td>Archive TRANSMIT.EDI in file CONNECTHISTORYyymmddAA.SND</td>
+</tr>
+<tr class="row-even"><td>A.5</td>
+<td>FTP TRANSMIT.EDI file to site, appending to filename FTPRECEIVE.EDI</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="2"><div class="first last line-block">
+<div class="line">End &#8211; Originating Partner Application and Transfer</div>
+<div class="line">- - - - - - - - - - - - - FTP Process - - - - - - - - - - - - - - - -</div>
+<div class="line">Start &#8211; Receiving Partner Transfer and Application</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>B.1</td>
+<td><div class="first last line-block">
+<div class="line">Access FTP site</div>
+<div class="line">copy FTPRECEIVE.EDI to CONNECTRECEIVE.EDI</div>
+<div class="line">then delete FTPRECEIVE.EDI</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>B.2</td>
+<td>Archive RECEIVE.EDI in filename CONNECTHISTORYyymmddAA.RCV</td>
+</tr>
+<tr class="row-even"><td>B.3</td>
+<td>Separate data into documents and write them to RECEIVES file</td>
+</tr>
+<tr class="row-odd"><td>B.4</td>
+<td><div class="first last line-block">
+<div class="line">Validate documents against corresponding EDI standards version</div>
+<div class="line">Write 997 Functional Acknowledgments to TRANSMITS file</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>B.5</td>
+<td>Translate accepted documents into application database</td>
+</tr>
+</tbody>
+</table>
+<p>In the table above, WARES Exchange performs all receiving actions in one step
+using menu selection <em class="menuselection">Exchange ‣ Interchange ‣ Receive</em>.
+All that is required is to replace the CONNECT.BAT operating system file with a
+program to perform the FTP file copy.</p>
+<p>The transmit process is more problematic when trading with multiple partners.
+The default WARES Exchange process bundles all data to transmit into one file,
+to be parsed and distributed by the VAN. A replacement process which would
+transmit data for each partner separately, sending it to the correct FTP site,
+would be required.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="23_receive-send.html" title="Receive/Transmit"
+             >next</a></li>
+        <li class="right" >
+          <a href="21_operations.html" title="EDI Operations"
+             >previous</a> |</li>
+        <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Gerald Lovel.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

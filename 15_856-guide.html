@@ -1,0 +1,964 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>856 ASN Receipt &mdash; Electronic Data Interchange 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Electronic Data Interchange 1.0 documentation" href="index.html" />
+    <link rel="next" title="EDI Operations" href="21_operations.html" />
+    <link rel="prev" title="944 WR Advice" href="14_944-guide.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="21_operations.html" title="EDI Operations"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="14_944-guide.html" title="944 WR Advice"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="14_944-guide.html"
+                        title="previous chapter">944 WR Advice</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="21_operations.html"
+                        title="next chapter">EDI Operations</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/15_856-guide.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="asn-receipt">
+<span id="id1"></span><h1>856 ASN Receipt<a class="headerlink" href="#asn-receipt" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The 856 mapping listed below is prepared specifically for receiving paper rolls
+or other serialized units at the warehouse.</p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="7%" />
+<col width="39%" />
+<col width="1%" />
+<col width="8%" />
+<col width="17%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Seg</th>
+<th class="head">Ref</th>
+<th class="head">Description</th>
+<th class="head">M</th>
+<th class="head">Value</th>
+<th class="head">Mapped To</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ST</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Transaction Set Identifier Code</div>
+<div class="line">Transaction Set Control Number</div>
+</div>
+</td>
+<td>M
+M</td>
+<td>&#8220;856&#8221;</td>
+<td colspan="2">System control segment</td>
+</tr>
+<tr class="row-odd"><td>BSN</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Transaction Set Purpose Code</div>
+<div class="line">Shipment Identification</div>
+<div class="line">Date</div>
+<div class="line">Time</div>
+</div>
+</td>
+<td>M
+M
+M
+M</td>
+<td>&nbsp;</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">COMMENTS</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">Required</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>DTM</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line"><br /></div>
+<div class="line">-02</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Date/Time Qualifier</div>
+<div class="line"><br /></div>
+<div class="line">Date</div>
+</div>
+</td>
+<td>M
+C
+C</td>
+<td><div class="first last line-block">
+<div class="line">&#8220;002&#8221;</div>
+<div class="line">&#8220;011&#8221;</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">DATE</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Requested deliver</div>
+<div class="line">Shipped on</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>HL</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Hierarchical ID Number</div>
+<div class="line">Hierarchical Parent ID Number</div>
+<div class="line">Hierarchical Level Code</div>
+<div class="line">Hierarchical Child Code</div>
+</div>
+</td>
+<td>M
+O
+M
+O</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">&#8220;S&#8221;</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Heirarchy control</div>
+<div class="line"><br /></div>
+<div class="line">Shipment level</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>MEA</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Measurement ....</div>
+</div>
+</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td colspan="2">Accepted but not mapped</td>
+</tr>
+<tr class="row-odd"><td>TD5</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+<div class="line">-05</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Routing Sequence Code</div>
+<div class="line">Identification Code Qualifier</div>
+<div class="line">Identification Code</div>
+<div class="line">Transportation Method/Type Code</div>
+<div class="line">Routing</div>
+</div>
+</td>
+<td>O
+C
+C
+C
+C</td>
+<td><div class="first last line-block">
+<div class="line">&#8220;O&#8221;</div>
+<div class="line">&#8220;2&#8221;</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">CARRIER</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">SCAC code</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>TD3</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Equipment Description Code</div>
+<div class="line">Equipment Initial</div>
+<div class="line">Equipment Number</div>
+</div>
+</td>
+<td>C
+O
+C</td>
+<td><div class="first last line-block">
+<div class="line">&#8220;TL&#8221;</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">VEHICLE</div>
+<div class="line">VEHICLE</div>
+</div>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N1</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Entity Identifier Code</div>
+<div class="line">Name</div>
+<div class="line">Identification Code Qualifier</div>
+<div class="line">Identification Code</div>
+</div>
+</td>
+<td>M
+C
+C
+C</td>
+<td><div class="first last line-block">
+<div class="line">&#8220;SF&#8221;</div>
+<div class="line"><br /></div>
+<div class="line">&#8220;92&#8221;</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">NAME</div>
+<div class="line"><br /></div>
+<div class="line">ADDRESS</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Mapped only &#8220;SF&#8221;</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Unique ID req&#8217;d</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>N3</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Address Information</div>
+<div class="line">Address Information</div>
+</div>
+</td>
+<td>M
+O</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">STREET</div>
+<div class="line">STREET</div>
+</div>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>N4</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">City Name</div>
+<div class="line">State or Province Code</div>
+<div class="line">Postal Code</div>
+<div class="line">Country Code</div>
+</div>
+</td>
+<td>O
+O
+O
+O</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">CITY</div>
+<div class="line">STATE</div>
+<div class="line">ZIP</div>
+<div class="line">COUNTRY</div>
+</div>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>HL</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Hierarchical ID Number</div>
+<div class="line">Hierarchical Parent ID Number</div>
+<div class="line">Hierarchical Level Code</div>
+<div class="line">Hierarchical Child Code</div>
+</div>
+</td>
+<td>M
+O
+M
+O</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">&#8220;O&#8221;</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Hierarchy control</div>
+<div class="line"><br /></div>
+<div class="line">Order level</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>PRF</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Purchase Order Number</div>
+</div>
+</td>
+<td>M</td>
+<td>&nbsp;</td>
+<td>PO_NUMBER</td>
+<td>Required</td>
+</tr>
+<tr class="row-even"><td>MEA</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Measurement Reference ID Code</div>
+</div>
+</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td colspan="2">Accepted but not mapped</td>
+</tr>
+<tr class="row-odd"><td>REF</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Reference Identification Qualif</div>
+<div class="line">Reference Identification</div>
+</div>
+</td>
+<td>M
+O</td>
+<td><div class="first last line-block">
+<div class="line">&#8220;MI&#8221;</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">REFERENCE</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">Required</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>HL</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Hierarchical ID Number</div>
+<div class="line">Hierarchical Parent ID Number</div>
+<div class="line">Hierarchical Level Code</div>
+<div class="line">Hierarchical Child Code</div>
+</div>
+</td>
+<td>M
+O
+M
+O</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">&#8220;D&#8221;</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">SERIAL</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Hierarchy control</div>
+<div class="line"><br /></div>
+<div class="line">Product level</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>LIN</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+<div class="line">-05</div>
+<div class="line">-06</div>
+<div class="line">-07</div>
+<div class="line">-08</div>
+<div class="line">-09</div>
+<div class="line">-10</div>
+<div class="line">-11</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Assigned Identification</div>
+<div class="line">Product/Service ID Qualifier</div>
+<div class="line">Product/Service ID</div>
+<div class="line">Product/Service ID Qualifier</div>
+<div class="line">Product/Service ID</div>
+<div class="line">Product/Service ID Qualifier</div>
+<div class="line">Product/Service ID</div>
+<div class="line">Product/Service ID Qualifier</div>
+<div class="line">Product/Service ID</div>
+<div class="line">Product/Service ID Qualifier</div>
+<div class="line">Product/Service ID</div>
+</div>
+</td>
+<td>O
+M
+M
+C
+C
+C
+C
+C
+C
+C
+C</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">&#8220;EP&#8221;</div>
+<div class="line">&#8220;DUM&#8221;</div>
+<div class="line">&#8220;LT&#8221;</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">CONTROL</div>
+<div class="line"><br /></div>
+<div class="line">PRODUCT</div>
+<div class="line"><br /></div>
+<div class="line">CONTROL</div>
+<div class="line"><br /></div>
+<div class="line">DESCRIPTION</div>
+<div class="line"><br /></div>
+<div class="line">DESCRIPTION</div>
+<div class="line"><br /></div>
+<div class="line">DESCRIPTION</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Recipient creates</div>
+<div class="line"><br /></div>
+<div class="line">Sender ID Req&#8217;d</div>
+<div class="line"><br /></div>
+<div class="line">-04, -05 optional</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>PID</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Item Description Type</div>
+</div>
+</td>
+<td>M</td>
+<td>&nbsp;</td>
+<td colspan="2">Accepted but not mapped</td>
+</tr>
+<tr class="row-odd"><td>MEA</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Measurement Reference ID Code</div>
+<div class="line">Measurement Qualifier</div>
+<div class="line">Measurement Value</div>
+<div class="line">Unit of Measure</div>
+</div>
+</td>
+<td>O
+O
+C
+C</td>
+<td><div class="first last line-block">
+<div class="line">&#8220;CT&#8221;</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">FACT_STORE</div>
+<div class="line"><br /></div>
+<div class="line">QTY_PIECE</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Recipient creates</div>
+<div class="line"><br /></div>
+<div class="line">Required</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>MEA</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Measurement Reference ID Code</div>
+<div class="line">Measurement Qualifier</div>
+<div class="line">Measurement Value</div>
+<div class="line">Unit of Measure</div>
+</div>
+</td>
+<td>O
+O
+C
+C</td>
+<td><div class="first last line-block">
+<div class="line">&#8220;WT&#8221;</div>
+<div class="line">&#8220;G&#8221;</div>
+<div class="line"><br /></div>
+<div class="line">&#8220;LB&#8221;</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">QTY_WEIGHT</div>
+<div class="line">FACT_WEIGHT</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Required</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>HL</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Hierarchical ID Number</div>
+<div class="line">Hierarchical Parent ID Number</div>
+<div class="line">Hierarchical Level Code</div>
+<div class="line">Hierarchical Child Code</div>
+</div>
+</td>
+<td>M
+O
+M
+O</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">&#8220;I&#8221;</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Hierarchy control</div>
+<div class="line"><br /></div>
+<div class="line">Item/Unit level</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>LIN</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Assigned Identification</div>
+<div class="line">Product/Service ID Qualifier</div>
+<div class="line">Product/Service ID</div>
+</div>
+</td>
+<td>O
+M
+M</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line">&#8220;RO&#8221;</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">NUMBER</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Roll no. req&#8217;d</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>MEA</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Measurement Reference ID Code</div>
+<div class="line">Measurement Qualifier</div>
+<div class="line">Measurement Value</div>
+<div class="line">Unit of Measure</div>
+</div>
+</td>
+<td>O
+O
+C
+C</td>
+<td><div class="first last line-block">
+<div class="line">&#8220;WT&#8221;</div>
+<div class="line">&#8220;G&#8221;</div>
+<div class="line"><br /></div>
+<div class="line">&#8220;LB&#8221;</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">QTY_WEIGHT</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Roll wt req&#8217;d</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>MEA</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Measurement Reference ID Code</div>
+<div class="line">Measurement Qualifier</div>
+<div class="line">Measurement Value</div>
+<div class="line">Unit of Measure</div>
+</div>
+</td>
+<td>O
+O
+C
+C</td>
+<td><div class="first last line-block">
+<div class="line">&#8220;PD&#8221;</div>
+<div class="line">&#8220;LN&#8221;</div>
+<div class="line"><br /></div>
+<div class="line">&#8220;LF&#8221;</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">QTY_MEASURE</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Roll meas opt&#8217;l</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>CTT</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+<div class="line">-03</div>
+<div class="line">-04</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Number of Line Items</div>
+<div class="line">Hash Total</div>
+<div class="line">Weight</div>
+<div class="line">Unit or Basis for Measurement C</div>
+</div>
+</td>
+<td>M
+O
+C
+C</td>
+<td>&nbsp;</td>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SE</td>
+<td><div class="first last line-block">
+<div class="line">-01</div>
+<div class="line">-02</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Number of Included Segments</div>
+<div class="line">Transaction Set Control Number</div>
+</div>
+</td>
+<td>M
+M</td>
+<td>&nbsp;</td>
+<td colspan="2">System control segment</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="21_operations.html" title="EDI Operations"
+             >next</a></li>
+        <li class="right" >
+          <a href="14_944-guide.html" title="944 WR Advice"
+             >previous</a> |</li>
+        <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Gerald Lovel.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
