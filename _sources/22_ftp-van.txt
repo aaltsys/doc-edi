@@ -79,14 +79,15 @@ WARES performs transmitting actions steps B.1-5 using menu selection
 The combination of steps A.2-6 and B.1-5 are performed by selection 
 :menuselection:`Exchange --> Interchange --> Send/Receive`.
 
-A DOS batch file :file:`ftp.bat` handles operating system files for the 
-exchange. Download this script here: :download:`_downloads/ftp.bat`.
+Download the DOS batch file :download:`ftp.bat <_downloads/ftp.bat>` for a DOS 
+script to handle operating system files for data exchange. 
 
-Where WARES is run in a multiuser environment, the actual FTP transfers are 
-performed by a cron job on the Linux file server. we recommend program 
-:program:`lftp`, and a sample configuration file with cron job documentation 
-may be downloaded here: :download:`waresedi.cnf`. Server configuration is 
-described elsewhere in our documentation at http://servers.aaltsys.info.
+Where WARES is run in a multiuser environment, we use program :program:`lftp`
+to perform actual FTP transfers using a cron job on the Linux file server. 
+
+A sample configuration file :download:`waresedi.conf <_downloads/waresedi.cnf>` 
+is provided to use with :program:`lftp`. Server configuration is described 
+elsewhere in our documentation at http://servers.aaltsys.info.
 
 ----------
 
