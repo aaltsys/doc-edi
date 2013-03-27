@@ -94,7 +94,7 @@ because e-mail lacks the automation, data replication, and consolidation and
 distribution functions which a VAN provides. However, EDI data may be
 transferred using FTP (File Transfer Protocol) through an Internet Service
 Provider (ISP) without recourse to a VAN.</p>
-<p>Table 5.  Process Outline.</p>
+<p>Table 5.  Process Outline, Receiving data.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="8%" />
@@ -106,24 +106,6 @@ Provider (ISP) without recourse to a VAN.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>A.1</td>
-<td>Extract data to send to a single partner</td>
-</tr>
-<tr class="row-odd"><td>A.2</td>
-<td>Update database to mark extracted records</td>
-</tr>
-<tr class="row-even"><td>A.3</td>
-<td>Convert data to EDI documents and save in CONNECTTRANSMIT.EDI</td>
-</tr>
-<tr class="row-odd"><td>A.4</td>
-<td>Archive TRANSMIT.EDI in file CONNECTHISTORYyymmddAA.SND</td>
-</tr>
-<tr class="row-even"><td>A.5</td>
-<td>FTP TRANSMIT.EDI file to site, appending to filename FTPRECEIVE.EDI</td>
-</tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
 <tr class="row-even"><td colspan="2"><div class="first last line-block">
 <div class="line">End &#8211; Originating Partner Application and Transfer</div>
 <div class="line">- - - - - - - - - - - - - FTP Process - - - - - - - - - - - - - - - -</div>
@@ -131,44 +113,104 @@ Provider (ISP) without recourse to a VAN.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>B.1</td>
+<tr class="row-odd"><td>A.1</td>
 <td><div class="first last line-block">
-<div class="line">Access FTP site</div>
-<div class="line">copy FTPRECEIVE.EDI to CONNECTRECEIVE.EDI</div>
-<div class="line">then delete FTPRECEIVE.EDI</div>
+<div class="line">Connect to FTP site</div>
+<div class="line">Copy files in directory /ftp/B_to_A/* to /CONNECT/RCV/*</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>B.2</td>
-<td>Archive RECEIVE.EDI in filename CONNECTHISTORYyymmddAA.RCV</td>
+<tr class="row-even"><td>A.2</td>
+<td>Concatenate files from /CONNECT/RCV/ into /CONNECT/RECEIVE.EDI</td>
 </tr>
-<tr class="row-even"><td>B.3</td>
-<td>Separate data into documents and write them to RECEIVES file</td>
+<tr class="row-odd"><td>A.3</td>
+<td>Archive RECEIVE.EDI in filename /CONNECT/HISTORY/yymmddAA.RC$</td>
 </tr>
-<tr class="row-odd"><td>B.4</td>
+<tr class="row-even"><td>A.4</td>
+<td>Separate data into documents and write them to RECEIVES table</td>
+</tr>
+<tr class="row-odd"><td>A.5</td>
 <td><div class="first last line-block">
 <div class="line">Validate documents against corresponding EDI standards version</div>
-<div class="line">Write 997 Functional Acknowledgments to TRANSMITS file</div>
+<div class="line">(Write 997 Functional Acknowledgments in TRANSMITS table for later)</div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>B.5</td>
+<tr class="row-even"><td>A.6</td>
 <td>Translate accepted documents into application database</td>
 </tr>
 </tbody>
 </table>
-<p>In the table above, WARES Exchange performs all receiving actions in one step
-using menu selection <em class="menuselection">Exchange ‣ Interchange ‣ Receive</em>.
-All that is required is to replace the CONNECT.BAT operating system file with a
-program to perform the FTP file copy.</p>
-<p>The transmit process is more problematic when trading with multiple partners.
-The default WARES Exchange process bundles all data to transmit into one file,
-to be parsed and distributed by the VAN. A replacement process which would
-transmit data for each partner separately, sending it to the correct FTP site,
-would be required.</p>
+<p>Table 6.  Process Outline, Transmitting data.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Step</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>B.1</td>
+<td>Extract data to send to a single partner</td>
+</tr>
+<tr class="row-odd"><td>B.2</td>
+<td>Update database to mark extracted records</td>
+</tr>
+<tr class="row-even"><td>B.3</td>
+<td>Write EDI document records in TRANSMITS table</td>
+</tr>
+<tr class="row-odd"><td>B.4</td>
+<td>Concatenate EDI documents in file /CONNECT/SND/TRANSMIT.TX$</td>
+</tr>
+<tr class="row-even"><td>B.5</td>
+<td>Archive TRANSMIT.TX$ in file /CONNECT/HISTORY/yymmddAA.TX$</td>
+</tr>
+<tr class="row-odd"><td>B.6</td>
+<td><div class="first last line-block">
+<div class="line">Connect to FTP site</div>
+<div class="line">Copy file /CONNECT/HISTORY/yymmddAA.TX$ to directory /ftp/A_to_B/</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><div class="first last line-block">
+<div class="line">End &#8211; Originating Partner Application and Transfer</div>
+<div class="line">- - - - - - - - - - - - - FTP Process - - - - - - - - - - - - - - - -</div>
+<div class="line">Start &#8211; Receiving Partner Transfer and Application</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In the tables above, WARES performs receiving actions steps A.2-6 using menu
+selection <em class="menuselection">Exchange ‣ Interchange ‣ Receive</em>.
+WARES performs transmitting actions steps B.1-5 using menu selection
+<em class="menuselection">Exchange ‣ Interchange ‣ Transmit</em>. <a class="footnote-reference" href="#id2" id="id1">[1]</a>
+The combination of steps A.2-6 and B.1-5 are performed by selection
+<em class="menuselection">Exchange ‣ Interchange ‣ Send/Receive</em>.</p>
+<p>A DOS batch file <tt class="file docutils literal"><span class="pre">ftp.bat</span></tt> handles operating system files for the
+exchange. Download this script here: <a class="reference download internal" href="_downloads/ftp.bat"><tt class="xref download docutils literal"><span class="pre">_downloads/ftp.bat</span></tt></a>.</p>
+<p>Where WARES is run in a multiuser environment, the actual FTP transfers are
+performed by a cron job on the Linux file server. we recommend program
+<strong class="program">lftp</strong>, and a sample configuration file with cron job documentation
+may be downloaded here: <tt class="xref download docutils literal"><span class="pre">waresedi.cnf</span></tt>. Server configuration is
+described elsewhere in our documentation at <a class="reference external" href="http://servers.aaltsys.info">http://servers.aaltsys.info</a>.</p>
+<hr class="docutils" />
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>The transmit process is problematic with multiple trading partners.
+By default WARES bundles all data to transmit into one file, to be parsed and
+distributed by a VAN. A replacement process which would transmit data for
+each partner separately, sending it to the correct FTP site, is not currently
+provided.</td></tr>
+</tbody>
+</table>
 </div>
 
 

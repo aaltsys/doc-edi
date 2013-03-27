@@ -24,48 +24,74 @@ distribution functions which a VAN provides. However, EDI data may be
 transferred using FTP (File Transfer Protocol) through an Internet Service 
 Provider (ISP) without recourse to a VAN.
 
-Table 5.  Process Outline.  
+Table 5.  Process Outline, Receiving data.
+
++------+-----------------------------------------------------------------------+
+| Step | Description                                                           |
++======+=======================================================================+
+|| End -- Originating Partner Application and Transfer                         |
+|| - - - - - - - - - - - - - FTP Process - - - - - - - - - - - - - - - -       |
+|| Start -- Receiving Partner Transfer and Application                         |
++------+-----------------------------------------------------------------------+
+| A.1  || Connect to FTP site                                                  |
+|      || Copy files in directory /ftp/B_to_A/* to /CONNECT/RCV/*              |
++------+-----------------------------------------------------------------------+
+| A.2  | Concatenate files from /CONNECT/RCV/ into /CONNECT/RECEIVE.EDI        |
++------+-----------------------------------------------------------------------+
+| A.3  | Archive RECEIVE.EDI in filename /CONNECT/HISTORY/yymmddAA.RC$         |
++------+-----------------------------------------------------------------------+
+| A.4  | Separate data into documents and write them to RECEIVES table         |
++------+-----------------------------------------------------------------------+
+| A.5  || Validate documents against corresponding EDI standards version       |
+|      || (Write 997 Functional Acknowledgments in TRANSMITS table for later)  |
++------+-----------------------------------------------------------------------+
+| A.6  | Translate accepted documents into application database                |
++------+-----------------------------------------------------------------------+
+
+Table 6.  Process Outline, Transmitting data.  
 
 +------+-----------------------------------------------------------------------+
 | Step | Description                                                           |
 +======+=======================================================================+ 
-| A.1  | Extract data to send to a single partner                              |
+| B.1  | Extract data to send to a single partner                              |
 +------+-----------------------------------------------------------------------+
-| A.2  | Update database to mark extracted records                             |
+| B.2  | Update database to mark extracted records                             |
 +------+-----------------------------------------------------------------------+
-| A.3  | Convert data to EDI documents and save in \CONNECT\TRANSMIT.EDI       |
+| B.3  | Write EDI document records in TRANSMITS table                         |
 +------+-----------------------------------------------------------------------+
-| A.4  | Archive TRANSMIT.EDI in file \CONNECT\HISTORY\yymmddAA.SND            |
+| B.4  | Concatenate EDI documents in file /CONNECT/SND/TRANSMIT.TX$           |
 +------+-----------------------------------------------------------------------+
-| A.5  | FTP TRANSMIT.EDI file to site, appending to filename \FTP\RECEIVE.EDI |
+| B.5  | Archive TRANSMIT.TX$ in file /CONNECT/HISTORY/yymmddAA.TX$            |
++------+-----------------------------------------------------------------------+
+| B.6  || Connect to FTP site                                                  |
+|      || Copy file /CONNECT/HISTORY/yymmddAA.TX$ to directory /ftp/A_to_B/    |
 +------+-----------------------------------------------------------------------+
 +------+-----------------------------------------------------------------------+
 || End -- Originating Partner Application and Transfer                         |
 || - - - - - - - - - - - - - FTP Process - - - - - - - - - - - - - - - -       |
 || Start -- Receiving Partner Transfer and Application                         |
 +------+-----------------------------------------------------------------------+
-+------+-----------------------------------------------------------------------+
-| B.1  || Access FTP site                                                      |
-|      || copy \FTP\RECEIVE.EDI to \CONNECT\RECEIVE.EDI                        |
-|      || then delete \FTP\RECEIVE.EDI                                         |
-+------+-----------------------------------------------------------------------+
-| B.2  | Archive RECEIVE.EDI in filename \CONNECT\HISTORY\yymmddAA.RCV         |
-+------+-----------------------------------------------------------------------+
-| B.3  | Separate data into documents and write them to RECEIVES file          |
-+------+-----------------------------------------------------------------------+
-| B.4  || Validate documents against corresponding EDI standards version       |
-|      || Write 997 Functional Acknowledgments to TRANSMITS file               |
-+------+-----------------------------------------------------------------------+
-| B.5  | Translate accepted documents into application database                |
-+------+-----------------------------------------------------------------------+
 
-In the table above, WARES Exchange performs all receiving actions in one step  
-using menu selection :menuselection:`Exchange --> Interchange --> Receive`.  
-All that is required is to replace the CONNECT.BAT operating system file with a 
-program to perform the FTP file copy.
+In the tables above, WARES performs receiving actions steps A.2-6 using menu 
+selection :menuselection:`Exchange --> Interchange --> Receive`. 
+WARES performs transmitting actions steps B.1-5 using menu selection 
+:menuselection:`Exchange --> Interchange --> Transmit`. [#]_
+The combination of steps A.2-6 and B.1-5 are performed by selection 
+:menuselection:`Exchange --> Interchange --> Send/Receive`.
 
-The transmit process is more problematic when trading with multiple partners. 
-The default WARES Exchange process bundles all data to transmit into one file, 
-to be parsed and distributed by the VAN. A replacement process which would 
-transmit data for each partner separately, sending it to the correct FTP site, 
-would be required. 
+A DOS batch file :file:`ftp.bat` handles operating system files for the 
+exchange. Download this script here: :download:`_downloads/ftp.bat`.
+
+Where WARES is run in a multiuser environment, the actual FTP transfers are 
+performed by a cron job on the Linux file server. we recommend program 
+:program:`lftp`, and a sample configuration file with cron job documentation 
+may be downloaded here: :download:`waresedi.cnf`. Server configuration is 
+described elsewhere in our documentation at http://servers.aaltsys.info.
+
+----------
+
+.. [#] The transmit process is problematic with multiple trading partners. 
+   By default WARES bundles all data to transmit into one file, to be parsed and 
+   distributed by a VAN. A replacement process which would transmit data for 
+   each partner separately, sending it to the correct FTP site, is not currently 
+   provided. 
