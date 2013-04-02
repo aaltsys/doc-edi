@@ -47,8 +47,18 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Standards Viewer</a><ul>
+<li><a class="reference internal" href="#edi-atlas">EDI*atlas</a><ul>
+<li><a class="reference internal" href="#system-requirements">System requirements</a></li>
+<li><a class="reference internal" href="#edi-atlas-components">EDI*atlas components</a></li>
+<li><a class="reference internal" href="#purpose">Purpose</a></li>
+<li><a class="reference internal" href="#program-documentation">Program Documentation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wares-and-edi">WARES and EDI</a><ul>
 <li><a class="reference internal" href="#viewer-structure">Viewer Structure</a></li>
 <li><a class="reference internal" href="#viewer-action-keys">Viewer Action Keys</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#corrections-to-table-data">Corrections to Table Data</a><ul>
 <li><a class="reference internal" href="#apostrophes">Apostrophes</a></li>
 <li><a class="reference internal" href="#maxuse">Maxuse</a></li>
@@ -103,11 +113,64 @@
             
   <div class="section" id="standards-viewer">
 <span id="viewer"></span><h1>Standards Viewer<a class="headerlink" href="#standards-viewer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="edi-atlas">
+<h2>EDI*atlas<a class="headerlink" href="#edi-atlas" title="Permalink to this headline">¶</a></h2>
+<p>AAltsys Technology provides a free download of a complete EDI implementation.</p>
+<p><a class="reference download internal" href="_downloads/EDI+ATLAS_Setup.exe"><tt class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">EDI*atlas</span> <span class="pre">here.</span></tt></a></p>
+<p>Enter username <strong>ADMIN</strong> and password <strong>ADM!N1</strong> when starting the program.</p>
+<div class="section" id="system-requirements">
+<h3>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h3>
+<p>EDI*atlas was written in OpenInsight 8.0.1, and program limitations are
+inherited from that platform. Tested operating systems and requirements are:</p>
+<ul class="simple">
+<li>Windows XP, 32-bit only</li>
+<li>WINE on Linux (tested on Ubuntu 12.10 32-bit Intel, with Wine 1.4.1)</li>
+<li>Windows XP Virtual Mode running on Windows 7</li>
+</ul>
+<p>Execution on Linux is somewhat slow and functionality is questionable. Execution
+in Windows XP Virtual Mode is excruciatingly slow and cannot be recommended.</p>
+</div>
+<div class="section" id="edi-atlas-components">
+<h3>EDI*atlas components<a class="headerlink" href="#edi-atlas-components" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Standards viewer, including full ASC-X12 versions 3070, 4010, and 5010.</li>
+<li>EDI transaction data validator.</li>
+<li>Translator which prepares functional acknowledgments with error reporting.</li>
+<li>Direct database mapper (provided your database is OpenInsight).</li>
+<li>Communications module supporting VAN and direct exchange options.</li>
+<li>Document and group exchange header history database.</li>
+<li>Full reporting of exchanges, errors, mappings, partners, etc.</li>
+</ul>
+</div>
+<div class="section" id="purpose">
+<h3>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h3>
+<p>EDI is one of the least understood areas of information processing. As a result,
+it is common to find that one or more partners to a data exchange claims to be
+using EDI, when in fact the data files being exchanged are not in compliance
+with data exchange requirements. It is pointless to argue about EDI standards
+when one is not in compliance. Instead, use the standards validation features in
+EDI*atlas to identify deficiencies in EDI files and correct the deficiencies.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last"><em class="menuselection">Exchange ‣ Interchange ‣ +Processes ‣ Receive File</em>
+is a menu selection to process any EDI exchange file and check the data for
+standards compliance.</p>
+</div>
+</div>
+<div class="section" id="program-documentation">
+<h3>Program Documentation<a class="headerlink" href="#program-documentation" title="Permalink to this headline">¶</a></h3>
+<p>Overview documentation for EDI is contained in this website. Documentation for
+EDI*atlas is included with the program, and the user is encouraged to use the
+<tt class="kbd docutils literal"><span class="pre">[F1]</span></tt> key.</p>
+</div>
+</div>
+<div class="section" id="wares-and-edi">
+<h2>WARES and EDI<a class="headerlink" href="#wares-and-edi" title="Permalink to this headline">¶</a></h2>
 <p>WARES includes a viewer program for navigating the X12 document standards
 heirarchy, as well as a full data-driven mapper tool. The viewer is based on
 standards table data from DISA.</p>
 <div class="section" id="viewer-structure">
-<h2>Viewer Structure<a class="headerlink" href="#viewer-structure" title="Permalink to this headline">¶</a></h2>
+<h3>Viewer Structure<a class="headerlink" href="#viewer-structure" title="Permalink to this headline">¶</a></h3>
 <p>EDI standards provide a hierarchical, structured approach to representing
 the information in business documents. The viewer accurately reflects this
 hierarchy, with each level of the standards having a corresponding
@@ -145,7 +208,7 @@ levels, and the keystroke relationships between levels:</p>
 </div>
 </div>
 <div class="section" id="viewer-action-keys">
-<h2>Viewer Action Keys<a class="headerlink" href="#viewer-action-keys" title="Permalink to this headline">¶</a></h2>
+<h3>Viewer Action Keys<a class="headerlink" href="#viewer-action-keys" title="Permalink to this headline">¶</a></h3>
 <p>The viewer uses five types of interface elements to display information:
 menus, windows, popups, messages, and text. The active keys for each part of
 the interface are shown in the following table:</p>
@@ -242,6 +305,7 @@ the interface are shown in the following table:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <div class="section" id="corrections-to-table-data">
 <h2>Corrections to Table Data<a class="headerlink" href="#corrections-to-table-data" title="Permalink to this headline">¶</a></h2>
