@@ -1,0 +1,14 @@
+# This script performs EDI data exchange with a remote ftp server using a cron job for lftp.
+# place file  as /etc/waresedi.conf
+# owner:group = root:root, permissions 700
+# cron command, run as root: date >> /var/log/cron.log; lftp -f /etc/waresedi.conf 1>> /var/log/cron.log 2>> /var/log/cron.log
+#
+# replace {username}, {password}, {service://domainname.TLD} with remote ftp site-specific information
+# replace remote-send-dir and remote-receive-dir with corresponding transfer folders of remote ftp site
+#
+lcd /home/samba/shares/arev/connect
+open -u {username},{password} {service://domainname.TLD}
+mput -c -E ./snd/* -O ./{remote-send-dir}/
+mget -c -E ./{remote-receive-dir}/* -O ./rcv
+quit
+

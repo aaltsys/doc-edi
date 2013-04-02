@@ -4,12 +4,69 @@
 Standards Viewer
 #############################
 
+EDI*atlas
+=============================
+
+AAltsys Technology provides a free download of a complete EDI implementation. 
+
+:download:`Download EDI*atlas here. <_downloads/EDI+ATLAS_Setup.exe>`
+
+Enter username **ADMIN** and password **ADM!N1** when starting the program.
+
+System requirements
+-----------------------------
+
+EDI*atlas was written in OpenInsight 8.0.1, and program limitations are 
+inherited from that platform. Tested operating systems and requirements are:
+
++ Windows XP, 32-bit only
++ WINE on Linux (tested on Ubuntu 12.10 32-bit Intel, with Wine 1.4.1)
++ Windows XP Virtual Mode running on Windows 7 
+
+Execution on Linux is somewhat slow and functionality is questionable. Execution 
+in Windows XP Virtual Mode is excruciatingly slow and cannot be recommended.
+
+EDI*atlas components
+-----------------------------
+
++  Standards viewer, including full ASC-X12 versions 3070, 4010, and 5010.
++  EDI transaction data validator.
++  Translator which prepares functional acknowledgments with error reporting.
++  Direct database mapper (provided your database is OpenInsight).
++  Communications module supporting VAN and direct exchange options.
++  Document and group exchange header history database.
++  Full reporting of exchanges, errors, mappings, partners, etc.
+
+Purpose
+-----------------------------
+
+EDI is one of the least understood areas of information processing. As a result, 
+it is common to find that one or more partners to a data exchange claims to be 
+using EDI, when in fact the data files being exchanged are not in compliance 
+with data exchange requirements. It is pointless to argue about EDI standards 
+when one is not in compliance. Instead, use the standards validation features in 
+EDI*atlas to identify deficiencies in EDI files and correct the deficiencies.
+
+.. hint:: :menuselection:`Exchange --> Interchange --> +Processes --> Receive File` 
+   is a menu selection to process any EDI exchange file and check the data for 
+   standards compliance.
+
+Program Documentation
+-----------------------------
+
+Overview documentation for EDI is contained in this website. Documentation for 
+EDI*atlas is included with the program, and the user is encouraged to use the 
+:kbd:`[F1]` key.
+
+WARES and EDI
+=============================
+
 WARES includes a viewer program for navigating the X12 document standards 
 heirarchy, as well as a full data-driven mapper tool. The viewer is based on 
-standards table data from DISA.
+standards table data from DISA. 
 
 Viewer Structure
-=============================
+-----------------------------
 
 EDI standards provide a hierarchical, structured approach to representing     
 the information in business documents. The viewer accurately reflects this    
@@ -51,7 +108,7 @@ levels, and the keystroke relationships between levels::
  └────────────────────────────────────────────────────────────────────────┘   
 
 Viewer Action Keys
-=============================
+-----------------------------
 
 The viewer uses five types of interface elements to display information:      
 menus, windows, popups, messages, and text. The active keys for each part of  
