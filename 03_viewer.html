@@ -27,8 +27,8 @@
     <link rel="next" title="940 Ship Order" href="11_940-guide.html" />
     <link rel="prev" title="EDI Documents" href="02_structure.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,7 +40,7 @@
         <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -83,12 +83,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="11_940-guide.html"
                         title="next chapter">940 Ship Order</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/03_viewer.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/03_viewer.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -107,14 +109,14 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="standards-viewer">
 <span id="viewer"></span><h1>Standards Viewer<a class="headerlink" href="#standards-viewer" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="edi-atlas">
 <h2>EDI*atlas<a class="headerlink" href="#edi-atlas" title="Permalink to this headline">¶</a></h2>
 <p>AAltsys Technology provides a free download of a complete EDI implementation.</p>
-<p><a class="reference download internal" href="_downloads/EDI+ATLAS_Setup.exe"><tt class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">EDI*atlas</span> <span class="pre">here.</span></tt></a></p>
+<p><a class="reference download internal" href="_downloads/EDI+ATLAS_Setup.exe"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">EDI*atlas</span> <span class="pre">here.</span></code></a></p>
 <p>Enter username <strong>ADMIN</strong> and password <strong>ADM!N1</strong> when starting the program.</p>
 <div class="section" id="system-requirements">
 <h3>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h3>
@@ -159,7 +161,7 @@ standards compliance.</p>
 <h3>Program Documentation<a class="headerlink" href="#program-documentation" title="Permalink to this headline">¶</a></h3>
 <p>Overview documentation for EDI is contained in this website. Documentation for
 EDI*atlas is included with the program, and the user is encouraged to use the
-<tt class="kbd docutils literal"><span class="pre">[F1]</span></tt> key.</p>
+<code class="kbd docutils literal"><span class="pre">[F1]</span></code> key.</p>
 </div>
 </div>
 <div class="section" id="wares-and-edi">
@@ -181,14 +183,14 @@ elements have corresponding code tables. Each detail table is shown in a
 columnar popup display in the viewer. These popups are accessible from the
 documentation windows, or from the popups at higher levels.</p>
 <p>The viewer hierarchy is navigated with certain keystrokes. Pressing
-<tt class="kbd docutils literal"><span class="pre">&lt;Enter&gt;</span></tt> on a line of a detail popup moves to a detail popup at the
-next-lower level of the standards hierarchy. Pressing <tt class="kbd docutils literal"><span class="pre">[F1]</span></tt> on a popup
+<code class="kbd docutils literal"><span class="pre">&lt;Enter&gt;</span></code> on a line of a detail popup moves to a detail popup at the
+next-lower level of the standards hierarchy. Pressing <code class="kbd docutils literal"><span class="pre">[F1]</span></code> on a popup
 line views the standards documentation page for the next-lower level. In the
-documentation windows, pressing <tt class="kbd docutils literal"><span class="pre">[SF1]</span></tt> displays the detail table for that
-page. Pressing <tt class="kbd docutils literal"><span class="pre">&lt;Esc&gt;</span></tt> moves from a lower level to a higher one.</p>
+documentation windows, pressing <code class="kbd docutils literal"><span class="pre">[SF1]</span></code> displays the detail table for that
+page. Pressing <code class="kbd docutils literal"><span class="pre">&lt;Esc&gt;</span></code> moves from a lower level to a higher one.</p>
 <p>The following table shows viewer detail popup and documentation window
 levels, and the keystroke relationships between levels:</p>
-<div class="highlight-python"><pre>┌────────────────────────────────────────────────────────────────────────┐
+<div class="highlight-python"><div class="highlight"><pre>┌────────────────────────────────────────────────────────────────────────┐
 │                                                                        │
 │                                                 [SF1]   [F1]  &lt;Enter&gt;  │
 │  Sets Selection Popup                                   ──┐      ──┐   │
@@ -202,7 +204,8 @@ levels, and the keystroke relationships between levels:</p>
 │  │ │ │ │ │ │ │ │ Element Codes Details Table     &lt;─┘    ──┐      &lt;─┤   │
 │  │ │ │ │ │ │ │ │ │ Element Code Documentation           &lt;─┘      &lt;─┘   │
 │                                                                        │
-└────────────────────────────────────────────────────────────────────────┘</pre>
+└────────────────────────────────────────────────────────────────────────┘
+</pre></div>
 </div>
 </div>
 <div class="section" id="viewer-action-keys">
@@ -397,7 +400,7 @@ designation could have implicitly defined the loop repeat.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -409,9 +412,9 @@ designation could have implicitly defined the loop repeat.</p>
         <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2013, Gerald Lovel.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
     </div>
   </body>
 </html>

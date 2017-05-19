@@ -27,8 +27,8 @@
     <link rel="next" title="Receive/Transmit" href="23_receive-send.html" />
     <link rel="prev" title="EDI Operations" href="21_operations.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,7 +40,7 @@
         <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="21_operations.html"
@@ -48,12 +48,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="23_receive-send.html"
                         title="next chapter">Receive/Transmit</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/22_ftp-van.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/22_ftp-van.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -72,7 +74,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="edi-overview">
 <span id="o"></span><h1>EDI Overview<a class="headerlink" href="#edi-overview" title="Permalink to this headline">¶</a></h1>
@@ -191,11 +193,11 @@ WARES performs transmitting actions steps B.1-5 using menu selection
 <em class="menuselection">Exchange ‣ Interchange ‣ Transmit</em>. <a class="footnote-reference" href="#id2" id="id1">[1]</a>
 The combination of steps A.2-6 and B.1-5 are performed by selection
 <em class="menuselection">Exchange ‣ Interchange ‣ Send/Receive</em>.</p>
-<p>Download the DOS batch file <a class="reference download internal" href="_downloads/ftp.bat"><tt class="xref download docutils literal"><span class="pre">ftp.bat</span></tt></a> for a DOS
+<p>Download the DOS batch file <a class="reference download internal" href="_downloads/ftp.bat"><code class="xref download docutils literal"><span class="pre">ftp.bat</span></code></a> for a DOS
 script to handle operating system files for data exchange.</p>
 <p>Where WARES is run in a multiuser environment, we use program <strong class="program">lftp</strong>
 to perform actual FTP transfers using a cron job on the Linux file server.</p>
-<p>A sample configuration file <a class="reference download internal" href="_downloads/waresedi.cnf"><tt class="xref download docutils literal"><span class="pre">waresedi.conf</span></tt></a>
+<p>A sample configuration file <a class="reference download internal" href="_downloads/waresedi.cnf"><code class="xref download docutils literal"><span class="pre">waresedi.conf</span></code></a>
 is provided to use with <strong class="program">lftp</strong>. Server configuration is described
 elsewhere in our documentation at <a class="reference external" href="http://servers.aaltsys.info">http://servers.aaltsys.info</a>.</p>
 <hr class="docutils" />
@@ -217,7 +219,7 @@ provided.</td></tr>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -229,9 +231,9 @@ provided.</td></tr>
         <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2013, Gerald Lovel.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
     </div>
   </body>
 </html>

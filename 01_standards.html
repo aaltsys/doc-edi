@@ -25,22 +25,22 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Electronic Data Interchange 1.0 documentation" href="index.html" />
     <link rel="next" title="EDI Documents" href="02_structure.html" />
-    <link rel="prev" title="Welcome to Electronic Data Interchange’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Electronic Data Interchange documentation" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="02_structure.html" title="EDI Documents"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Electronic Data Interchange’s documentation!"
+          <a href="index.html" title="Electronic Data Interchange documentation"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -69,16 +69,18 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to Electronic Data Interchange&#8217;s documentation!</a></p>
+                        title="previous chapter">Electronic Data Interchange documentation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="02_structure.html"
                         title="next chapter">EDI Documents</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/01_standards.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/01_standards.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -97,7 +99,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="x12-standards">
 <span id="standards"></span><h1>X12 Standards<a class="headerlink" href="#x12-standards" title="Permalink to this headline">¶</a></h1>
@@ -150,23 +152,25 @@ partners. The characters described here are in universal use today, and using
 any additional characters is discouraged if not prohibited.</p>
 <div class="section" id="basic-characters">
 <h3>Basic characters<a class="headerlink" href="#basic-characters" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>Uppercase letters    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+<div class="highlight-python"><div class="highlight"><pre>Uppercase letters    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 Numeric digits       0 1 2 3 4 5 6 7 8 9
-Special characters   ! " &amp; ' ( ) * + , - . / : ; ? =
+Special characters   ! &quot; &amp; &#39; ( ) * + , - . / : ; ? =
 The space character
 
 Control characters:  BEL HT  LF  VT  FF  CR  FS  GS  RS  US  NL
-ASCII hex values:    07  09  0A  0B  0C  0D  1C  1D  1E  1F</pre>
+ASCII hex values:    07  09  0A  0B  0C  0D  1C  1D  1E  1F
+</pre></div>
 </div>
 </div>
 <div class="section" id="extended-characters">
 <h3>Extended characters<a class="headerlink" href="#extended-characters" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>Lowercase letters    a b c d e f g h i j k l m n o p q r s t u v w x y z
+<div class="highlight-python"><div class="highlight"><pre>Lowercase letters    a b c d e f g h i j k l m n o p q r s t u v w x y z
 Other special chars  % ~ @ [ ] _ { } \ | &lt; &gt;
 National characters  # $
 
 Control characters:  SOH STX ETX EOT ENQ ACK DC1 DC2 DC3 DC4 NAK SYN ETB
-ASCII hex values:    01  02  03  04  05  06  11  12  13  14  15  16  17</pre>
+ASCII hex values:    01  02  03  04  05  06  11  12  13  14  15  16  17
+</pre></div>
 </div>
 </div>
 <div class="section" id="delimiters">
@@ -700,7 +704,7 @@ address the interchange envelope between partners. Therefore a transmission
 is analogous to a mail delivery to or a mail pickup from a mailbox. The
 sequence of control segments making up a transmission is displayed in the
 following figure:</p>
-<div class="highlight-python"><pre>┌──────────────────────────────────────────────────────────────────────────┐
+<div class="highlight-python"><div class="highlight"><pre>┌──────────────────────────────────────────────────────────────────────────┐
 │ ISA ─────────────────┐   ISA/IEA  Each interchange is bounded by an      │
 │     TA1 ───────────  │            ISA/IEA segment pair.                  │
 │     ... ───────────  │                                                   │
@@ -716,7 +720,8 @@ following figure:</p>
 │     ... ───────────  │                                                   │
 │ IEA ─────────────────┘            Each structure may repeat an arbitrary │
 │ ... ──────────────────            number of times in its position.       │
-└──────────────────────────────────────────────────────────────────────────┘</pre>
+└──────────────────────────────────────────────────────────────────────────┘
+</pre></div>
 </div>
 </div>
 </div>
@@ -727,21 +732,21 @@ following figure:</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="02_structure.html" title="EDI Documents"
              >next</a></li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Electronic Data Interchange’s documentation!"
+          <a href="index.html" title="Electronic Data Interchange documentation"
              >previous</a> |</li>
         <li><a href="index.html">Electronic Data Interchange 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2013, Gerald Lovel.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
     </div>
   </body>
 </html>
