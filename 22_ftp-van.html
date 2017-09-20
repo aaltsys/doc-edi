@@ -87,13 +87,13 @@ own operational sequence.</p>
 <hr class="docutils" />
 <p>TRANSFERRING EDI DATA THROUGH FTP</p>
 <p>Traditional EDI uses store-and-forward mail service bureaus, or Value Added
-Networks (VANs), to transfer data. These networks provide data consolidation,
-distribution, storage, reporting, and other services to guarantee reliable data
-transfer. Desktop e-mail software cannot replace the functions of a VAN,
-because e-mail lacks the automation, data replication, and consolidation and
-distribution functions which a VAN provides. However, EDI data may be
-transferred using FTP (File Transfer Protocol) through an Internet Service
-Provider (ISP) without recourse to a VAN.</p>
+Networks (VANs), to transfer data. <a class="footnote-reference" href="#id3" id="id1">[1]</a> These networks provide data
+consolidation, distribution, storage, reporting, and other services to
+guarantee reliable data transfer. Desktop e-mail software cannot replace the
+functions of a VAN, because e-mail lacks the automation, data replication, and
+consolidation and distribution functions which a VAN provides. However, EDI
+data may be transferred using FTP (File Transfer Protocol) through an Internet
+Service Provider (ISP) without recourse to a VAN.</p>
 <p>Table 5.  Process Outline, Receiving data.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -190,7 +190,7 @@ Provider (ISP) without recourse to a VAN.</p>
 <p>In the tables above, WARES performs receiving actions steps A.2-6 using menu
 selection <em class="menuselection">Exchange ‣ Interchange ‣ Receive</em>.
 WARES performs transmitting actions steps B.1-5 using menu selection
-<em class="menuselection">Exchange ‣ Interchange ‣ Transmit</em>. <a class="footnote-reference" href="#id2" id="id1">[1]</a>
+<em class="menuselection">Exchange ‣ Interchange ‣ Transmit</em>. <a class="footnote-reference" href="#id4" id="id2">[2]</a>
 The combination of steps A.2-6 and B.1-5 are performed by selection
 <em class="menuselection">Exchange ‣ Interchange ‣ Send/Receive</em>.</p>
 <p>Download the DOS batch file <a class="reference download internal" href="_downloads/ftp.bat"><code class="xref download docutils literal"><span class="pre">ftp.bat</span></code></a> for a DOS
@@ -201,14 +201,22 @@ to perform actual FTP transfers using a cron job on the Linux file server.</p>
 is provided to use with <strong class="program">lftp</strong>. Server configuration is described
 elsewhere in our documentation at <a class="reference external" href="http://servers.aaltsys.info">http://servers.aaltsys.info</a>.</p>
 <hr class="docutils" />
-<table class="docutils footnote" frame="void" id="id2" rules="none">
+<p>rubric:: Footnotes</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>The transmit process is problematic with multiple trading partners.
-By default WARES bundles all data to transmit into one file, to be parsed and
-distributed by a VAN. A replacement process which would transmit data for
-each partner separately, sending it to the correct FTP site, is not currently
-provided.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://boldvan.com/">BOLD VAN</a> is an inexpensive alternative to
+traditional VANs at a fixed price of $49.00 per month per partner.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>The transmit process is problematic with multiple trading partners.
+By default WARES bundles all data to transmit into one file, to be
+parsed and distributed by a VAN. A replacement process which would
+transmit data for each partner separately, sending it to the correct FTP
+site, is not currently provided.</td></tr>
 </tbody>
 </table>
 </div>
