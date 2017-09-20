@@ -16,13 +16,13 @@ own operational sequence.
 TRANSFERRING EDI DATA THROUGH FTP
 
 Traditional EDI uses store-and-forward mail service bureaus, or Value Added 
-Networks (VANs), to transfer data. These networks provide data consolidation, 
-distribution, storage, reporting, and other services to guarantee reliable data 
-transfer. Desktop e-mail software cannot replace the functions of a VAN, 
-because e-mail lacks the automation, data replication, and consolidation and 
-distribution functions which a VAN provides. However, EDI data may be 
-transferred using FTP (File Transfer Protocol) through an Internet Service 
-Provider (ISP) without recourse to a VAN.
+Networks (VANs), to transfer data. [#]_ These networks provide data 
+consolidation, distribution, storage, reporting, and other services to 
+guarantee reliable data transfer. Desktop e-mail software cannot replace the 
+functions of a VAN, because e-mail lacks the automation, data replication, and 
+consolidation and distribution functions which a VAN provides. However, EDI 
+data may be transferred using FTP (File Transfer Protocol) through an Internet 
+Service Provider (ISP) without recourse to a VAN.
 
 Table 5.  Process Outline, Receiving data.
 
@@ -91,8 +91,14 @@ elsewhere in our documentation at http://servers.aaltsys.info.
 
 ----------
 
+rubric:: Footnotes
+
+.. [#] `BOLD VAN <https://boldvan.com/>`_ is an inexpensive alternative to
+       traditional VANs at a fixed price of $49.00 per month per partner.
+
 .. [#] The transmit process is problematic with multiple trading partners. 
-   By default WARES bundles all data to transmit into one file, to be parsed and 
-   distributed by a VAN. A replacement process which would transmit data for 
-   each partner separately, sending it to the correct FTP site, is not currently 
-   provided. 
+       By default WARES bundles all data to transmit into one file, to be 
+       parsed and distributed by a VAN. A replacement process which would 
+       transmit data for each partner separately, sending it to the correct FTP 
+       site, is not currently provided. 
+
